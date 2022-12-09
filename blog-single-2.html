@@ -1,0 +1,886 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Working with custom datasets in PyTorch</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="assets/img/h-touch-icon.png" rel="icon">
+  <link href="assets/img/h-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="assets/css/style.css" rel="stylesheet">
+
+  <!-- =======================================================
+  * Template Name: FlexStart - v1.11.1
+  * Template URL: https://bootstrapmade.com/flexstart-bootstrap-startup-template/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="header fixed-top">
+    <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
+
+      <a href="index.html" class="logo d-flex align-items-center">
+        <img src="assets/img/logo1-3.jpg.png" alt="" text="cn">
+        <img src="assets/img/logo.png" alt="" text="en">
+        <span></span>
+      </a>
+
+      <nav id="navbar" class="navbar">
+        <ul>
+
+          
+          <!-- <p>
+              <span lang="ko">한국어 텍스트</span>
+              <span lang="en">Text in English</span>
+          </p> -->
+          <li class="container">
+            <!-- <h1 id="description">Show English Text</h1> -->
+             <div class="dropdown" text="en">
+              <button class="btn btn-default dropdown-toggle"onclick="toggleLanguage('Chinese')" type="button" data-toggle="dropdown"><img src="assets/img/en-flag.png" alt="" style="margin-right: 15px;width:20px">Language
+              <span class="caret"></span></button>
+              <ul class="dropdown-menu">
+                <li onclick="toggleLanguage('English')"><a href="#">English</a></li>
+                <li onclick="toggleLanguage('Chinese')"><a href="#">中文</a></li>
+              </ul>
+            </div>
+            <div class="dropdown" text="cn">
+              <button class="btn btn-default dropdown-toggle"onclick="toggleLanguage('English')" type="button" data-toggle="dropdown"><img src="assets/img/cn-flag.png" alt="" style="margin-right: 15px;width:20px">语言
+              <span class="caret"></span></button>
+              <ul class="dropdown-menu ">
+                <li onclick="toggleLanguage('English')"><a href="#">English</a></li>
+                <li onclick="toggleLanguage('Chinese')"><a href="#">中文</a></li>
+              </ul>
+            </div>
+          </li>
+          <li><a class="nav-link scrollto " href="index.html" text="en">Home</a></li>
+          <li><a class="nav-link scrollto " href="index.html" text="cn">首页</a></li>
+          <li><a class="nav-link scrollto" href="index.html" text="en">About</a></li>
+          <li><a class="nav-link scrollto" href="index.html" text="cn">关于我们</a></li>
+          <li><a class="nav-link scrollto active" text="en" href="#blog">Blog</a></li>
+          <li><a class="nav-link scrollto active" text="cn" href="#blog">新闻</a></li>
+          <!-- <li><a class="nav-link scrollto" href="#portfolio">Portfolio</a></li> -->
+          <li><a class="nav-link scrollto" href="index.html" text="en">Team</a></li>
+          <li><a class="nav-link scrollto" href="index.html" text="cn">团队</a></li>
+          <!-- <li><a href="blog.html">Blog</a></li> -->
+          <!-- <li class="dropdown"><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down"></i></a> -->
+            <!-- <ul>
+              <li><a href="#">Drop Down 1</a></li>
+              <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-right"></i></a>
+                <ul>
+                  <li><a href="#">Deep Drop Down 1</a></li>
+                  <li><a href="#">Deep Drop Down 2</a></li>
+                  <li><a href="#">Deep Drop Down 3</a></li>
+                  <li><a href="#">Deep Drop Down 4</a></li>
+                  <li><a href="#">Deep Drop Down 5</a></li>
+                </ul>
+              </li>
+              <li><a href="#">Drop Down 2</a></li>
+              <li><a href="#">Drop Down 3</a></li>
+              <li><a href="#">Drop Down 4</a></li>
+            </ul>
+          </li> -->
+          <!-- <li><a class="nav-link scrollto" href="#contact">Contact</a></li> -->
+          <li><a class="getstarted scrollto" href="#contact" text="en">Contact Us</a></li>
+          <li><a class="getstarted scrollto" href="#contact" text="cn">联系我们</a></li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+
+    </div>
+  </header><!-- End Header -->
+
+  <main id="main">
+
+    <!-- ======= Breadcrumbs ======= -->
+    <section class="breadcrumbs">
+      <div class="container">
+
+        <ol>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li>Working with custom datasets in PyTorch</li>
+        </ol>
+        <h2>Working with custom datasets in PyTorch</h2>
+
+      </div>
+    </section><!-- End Breadcrumbs -->
+
+    <!-- ======= Blog Single Section ======= -->
+    <section id="blog" class="blog">
+      <div class="container" data-aos="fade-up">
+
+        <div class="row">
+
+          <div class="col-lg-8 entries">
+
+            <article class="entry entry-single">
+
+              <div class="entry-img">
+                <img src="assets/img/blog/blog-2.jpg" alt="" class="img-fluid">
+              </div>
+
+              <h2 class="entry-title">
+                <a href="blog-single.html">Working with custom datasets in PyTorch</a>
+              </h2>
+
+              <div class="entry-meta">
+                <ul>
+                  <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a href="blog-single.html">Snawar Hussain</a></li>
+                  <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a href="blog-single.html"><time datetime="2020-01-01">July 12, 2021</time></a></li>
+                  <li class="d-flex align-items-center"><i class="bi bi-chat-dots"></i> <a href="blog-single.html">8 Comments</a></li>
+                </ul>
+              </div>
+
+
+                
+              <section class="page__content e-content" itemprop="text">
+        
+                <aside class="sidebar__right ">
+                  <nav class="toc">
+                    <header><h4 class="nav__title"><i class="fas fa-cog"></i> Contents of this post</h4></header>
+                    <ul class="toc__menu"><li><a href="#subclassing-torchutilsdatadataset-to-generate-samples-and-labels">Subclassing torch.utils.data.Dataset to generate samples and labels</a><ul><li><a href="#dataset-subclass">Dataset subclass:</a></li><li><a href="#writing-the-customdataset-class">Writing the CustomDataset class:</a></li></ul></li><li><a href="#make-a-subclass-from-dataset-and-initializing-it">make a subclass from Dataset and initializing it</a><ul><li><a href="#breaking-down-__getitem__">Breaking down __getitem__:</a></li><li><a href="#__len__-method">__len__ method:</a></li><li><a href="#preprocessing-method">preprocessing method:</a></li></ul></li><li><a href="#perparing--data-for-training-with-dataloader">Perparing  data for training with DataLoader:</a><ul><li><a href="#dataloader-to-load-customdataset">DataLoader to load CustomDataset:</a></li></ul></li><li><a href="#iterate-through-the-dataloader">Iterate through the dataloader:</a></li></ul>
+      
+                  </nav>
+                </aside>
+              
+              <p>Most PyTorch courses and tutorials show how to train a model using the pre-loaded datasets (such as MNIST) that subclass the <code class="language-plaintext highlighter-rouge">torch.utils.data.Dataset</code>. But in realistic scenarios, we have to train models on our own datasets and implement functions specific to them. Therefore, many of us don’t know the underlying operations and functions to implement to get PyTorch to work with our own dataset.</p>
+      
+      <p>PyTorch provides two data primitives: <code class="language-plaintext highlighter-rouge">torch.utils.data.DataLoader</code> and <code class="language-plaintext highlighter-rouge">torch.utils.data.Dataset</code> that allow you to use pre-loaded datasets as well as your own data. <code class="language-plaintext highlighter-rouge">Dataset</code> stores the samples and their corresponding labels, and <code class="language-plaintext highlighter-rouge">DataLoader</code> wraps an iterable around the Dataset to enable easy access to the samples.</p>
+      
+      <p>In this post, we will learn how to use the <code class="language-plaintext highlighter-rouge">Dataset</code> and <code class="language-plaintext highlighter-rouge">DataLoader</code> class. make subclasses from them to use for our custom dataset where samples and labels both are images. for classification training, we have samples as images and their class annotations in a CSV file (0 or 1). Pytorch official documentation provides a <a href="https://pytorch.org/tutorials/beginner/basics/data_tutorial.html#creating-a-custom-dataset-for-your-files">tutorial</a>
+       to work with that sort of dataset</p>
+      
+      <p class="notice--info"><strong>Note:</strong> In this particular example, i used <a href="https://paperswithcode.com/dataset/drive#:~:text=The%20Digital%20Retinal%20Images%20for,including%207%20abnormal%20pathology%20cases.&amp;text=to%2045%20degrees.-,Each%20image%20resolution%20is%20584*565%20pixels%20with%20eight%20bits,color%20channel%20(3%20channels).">DRIVE</a> dataset. DRIVE is a fundus images datset where samples are the retinal images and the labels are the corresponding segmentation map of retinal blood vessels (samples and labels are both images). With slight changes, this example can be used to load any type of dataset for training in pytorch</p>
+      
+      <h1 id="subclassing-torchutilsdatadataset-to-generate-samples-and-labels">Subclassing <code class="language-plaintext highlighter-rouge">torch.utils.data.Dataset</code> to generate samples and labels<a class="header-link" href="#subclassing-torchutilsdatadataset-to-generate-samples-and-labels" title="Permalink"><span class="sr-only" style="display:none">Permalink</span><i class="fas fa-link"></i></a></h1>
+      
+      <p>The whole code for making a dataset generator using <code class="language-plaintext highlighter-rouge">torch.utils.data.Dataset</code> that will be explained line by line:</p>
+      
+      <h2 id="dataset-subclass"><code class="language-plaintext highlighter-rouge">Dataset</code> subclass:<a class="header-link" href="#dataset-subclass" title="Permalink"><span class="sr-only" style="display:none">Permalink</span><i class="fas fa-link"></i></a></h2>
+      
+      <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+      <span class="kn">from</span> <span class="nn">torch.utils.data</span> <span class="kn">import</span> <span class="n">Dataset</span>
+      <span class="kn">import</span> <span class="nn">os</span>
+      <span class="kn">import</span> <span class="nn">natsort</span>
+      <span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span>
+      <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
+      <span class="kn">import</span> <span class="nn">cv2</span>
+      
+      <span class="k">class</span> <span class="nc">CustomDataset</span><span class="p">(</span><span class="n">Dataset</span><span class="p">):</span>
+          <span class="s">"""the class for loading the dataset from the directories
+          Arguments:
+      
+              img_dir: directory for the dataset images
+      
+              label_dir: labels of the images directory
+      
+              transform: transforms applied to inputs
+      
+              transform_label: transforms applied to the labels
+          """</span>
+      
+          <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">img_dir</span><span class="p">,</span> <span class="n">label_dir</span><span class="p">,</span> 
+                      <span class="n">transform_image</span><span class="p">,</span><span class="n">transform_label</span><span class="p">,</span>
+                      <span class="n">image_scale</span> <span class="o">=</span> <span class="bp">None</span><span class="p">):</span>
+      
+              <span class="bp">self</span><span class="p">.</span><span class="n">image_scale</span> <span class="o">=</span> <span class="n">image_scale</span>
+              <span class="bp">self</span><span class="p">.</span><span class="n">img_dir</span> <span class="o">=</span> <span class="n">img_dir</span>
+              <span class="bp">self</span><span class="p">.</span><span class="n">label_dir</span> <span class="o">=</span> <span class="n">label_dir</span>
+              <span class="bp">self</span><span class="p">.</span><span class="n">transform_image</span> <span class="o">=</span> <span class="n">transform_image</span>
+              <span class="bp">self</span><span class="p">.</span><span class="n">transform_label</span> <span class="o">=</span> <span class="n">transform_label</span>
+              <span class="n">all_images</span> <span class="o">=</span> <span class="n">os</span><span class="p">.</span><span class="n">listdir</span><span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">img_dir</span><span class="p">)</span>
+              <span class="n">all_lables</span> <span class="o">=</span> <span class="n">os</span><span class="p">.</span><span class="n">listdir</span><span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">label_dir</span><span class="p">)</span>
+      
+              <span class="bp">self</span><span class="p">.</span><span class="n">total_imgs</span> <span class="o">=</span> <span class="n">natsort</span><span class="p">.</span><span class="n">natsorted</span><span class="p">(</span><span class="n">all_images</span><span class="p">)</span>
+              <span class="bp">self</span><span class="p">.</span><span class="n">total_labels</span> <span class="o">=</span> <span class="n">natsort</span><span class="p">.</span><span class="n">natsorted</span><span class="p">(</span><span class="n">all_lables</span><span class="p">)</span>
+          
+      
+          <span class="k">def</span> <span class="nf">__len__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+              <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">total_imgs</span><span class="p">)</span>
+      
+          <span class="o">@</span><span class="nb">classmethod</span>
+          <span class="k">def</span> <span class="nf">preprocessing</span><span class="p">(</span><span class="n">cls</span><span class="p">,</span> <span class="n">image</span><span class="p">,</span> <span class="n">label</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+              <span class="s">"""class method for preprocessing of the image 
+              and label
+              usage: preprocessing the images before feeding
+              to the network for training as well as before
+              making predictions dataset class dishes out 
+              pre-processed bathes of images and labels """</span>
+              <span class="k">return</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">label</span><span class="p">)</span>
+      
+      
+          <span class="k">def</span> <span class="nf">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">idx</span><span class="p">):</span>
+              <span class="s">""" Generator to yield a tuple of image and
+              label
+              idx: the index to iterate over the dataset in
+              directories of both images and labels
+              ---------------------
+      
+              :return:  image, label
+              :rtype: torch tensor
+              """</span>
+      
+              <span class="n">img_loc</span> <span class="o">=</span> <span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">img_dir</span><span class="p">,</span>
+                               <span class="bp">self</span><span class="p">.</span><span class="n">total_imgs</span><span class="p">[</span><span class="n">idx</span><span class="p">])</span>
+              <span class="n">label_loc</span> <span class="o">=</span> <span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">label_dir</span><span class="p">,</span>
+                               <span class="bp">self</span><span class="p">.</span><span class="n">total_labels</span><span class="p">[</span><span class="n">idx</span><span class="p">])</span>
+              <span class="c1"># opening image using cv2 function
+      </span>        <span class="n">image</span> <span class="o">=</span> <span class="n">cv2</span><span class="p">.</span><span class="n">imread</span><span class="p">(</span><span class="n">img_loc</span><span class="p">)</span>
+              <span class="c1"># opening image with PIL package
+      </span>        <span class="n">label</span> <span class="o">=</span> <span class="n">Image</span><span class="p">.</span><span class="nb">open</span><span class="p">(</span><span class="n">label_loc</span><span class="p">)</span>  
+      
+      
+              <span class="n">image</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">preprocessing</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">label</span><span class="p">,</span>
+                               <span class="n">mask</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="bp">self</span><span class="p">.</span><span class="n">image_scale</span><span class="p">)</span>
+      
+              <span class="n">label</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">label</span><span class="p">).</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="p">.</span><span class="n">uint8</span><span class="p">)</span>
+      
+      
+              <span class="s">'''=====applying transformations ======='''</span>
+      
+              <span class="n">label</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">transform_label</span><span class="p">(</span><span class="n">label</span><span class="p">)</span>
+              <span class="n">image</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">transform_label</span><span class="p">(</span><span class="n">image</span><span class="p">)</span>
+      
+              <span class="k">return</span> <span class="n">image</span><span class="p">,</span> <span class="n">label</span>
+      
+      </code></pre></div></div>
+      
+      <h2 id="writing-the-customdataset-class">Writing the <code class="language-plaintext highlighter-rouge">CustomDataset</code> class:<a class="header-link" href="#writing-the-customdataset-class" title="Permalink"><span class="sr-only" style="display:none">Permalink</span><i class="fas fa-link"></i></a></h2>
+      
+      <p>import <code class="language-plaintext highlighter-rouge">torch.utils.data.Dataset</code> and all the other necessary packages according to  your data.</p>
+      
+      <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">torch.utils.data</span> <span class="kn">import</span> <span class="n">Dataset</span>
+      <span class="kn">import</span> <span class="nn">os</span>
+      <span class="kn">import</span> <span class="nn">natsort</span>
+      <span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span>
+      <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
+      <span class="kn">import</span> <span class="nn">cv2</span>
+      </code></pre></div></div>
+      
+      <h1 id="make-a-subclass-from-dataset-and-initializing-it">make a subclass from <code class="language-plaintext highlighter-rouge">Dataset</code> and initializing it<a class="header-link" href="#make-a-subclass-from-dataset-and-initializing-it" title="Permalink"><span class="sr-only" style="display:none">Permalink</span><i class="fas fa-link"></i></a></h1>
+      
+      <p><code class="language-plaintext highlighter-rouge">__init__</code> function is a class constructor that is run once to initializing the class instance</p>
+      <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+          <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">img_dir</span><span class="p">,</span> <span class="n">label_dir</span><span class="p">,</span> <span class="n">transform_image</span><span class="p">,</span> <span class="n">transform_label</span><span class="p">,</span> <span class="n">image_scale</span> <span class="o">=</span> <span class="bp">None</span><span class="p">):</span>
+      
+              <span class="bp">self</span><span class="p">.</span><span class="n">image_scale</span> <span class="o">=</span> <span class="n">image_scale</span>
+              <span class="bp">self</span><span class="p">.</span><span class="n">img_dir</span> <span class="o">=</span> <span class="n">img_dir</span>
+              <span class="bp">self</span><span class="p">.</span><span class="n">label_dir</span> <span class="o">=</span> <span class="n">label_dir</span>
+              <span class="bp">self</span><span class="p">.</span><span class="n">transform_image</span> <span class="o">=</span> <span class="n">transform_image</span>
+              <span class="bp">self</span><span class="p">.</span><span class="n">transform_label</span> <span class="o">=</span> <span class="n">transform_label</span>
+              <span class="n">all_images</span> <span class="o">=</span> <span class="n">os</span><span class="p">.</span><span class="n">listdir</span><span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">img_dir</span><span class="p">)</span>
+              <span class="n">all_lables</span> <span class="o">=</span> <span class="n">os</span><span class="p">.</span><span class="n">listdir</span><span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">label_dir</span><span class="p">)</span>
+      
+              <span class="bp">self</span><span class="p">.</span><span class="n">total_imgs</span> <span class="o">=</span> <span class="n">natsort</span><span class="p">.</span><span class="n">natsorted</span><span class="p">(</span><span class="n">all_images</span><span class="p">)</span>
+              <span class="bp">self</span><span class="p">.</span><span class="n">total_labels</span> <span class="o">=</span> <span class="n">natsort</span><span class="p">.</span><span class="n">natsorted</span><span class="p">(</span><span class="n">all_lables</span><span class="p">)</span>
+      
+      </code></pre></div></div>
+      <p>we are providing the image and labels directories along with separate transforms for images and labels as parameters to the class <code class="language-plaintext highlighter-rouge">__ini__</code> function.
+       we list samples and labels from their respective directories and then sort them according to their names with <code class="language-plaintext highlighter-rouge">natsort</code>:</p>
+      <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>        <span class="n">all_images</span> <span class="o">=</span> <span class="n">os</span><span class="p">.</span><span class="n">listdir</span><span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">img_dir</span><span class="p">)</span>
+              <span class="n">all_lables</span> <span class="o">=</span> <span class="n">os</span><span class="p">.</span><span class="n">listdir</span><span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">label_dir</span><span class="p">)</span>
+      
+              <span class="bp">self</span><span class="p">.</span><span class="n">total_imgs</span> <span class="o">=</span> <span class="n">natsort</span><span class="p">.</span><span class="n">natsorted</span><span class="p">(</span><span class="n">all_images</span><span class="p">)</span>
+              <span class="bp">self</span><span class="p">.</span><span class="n">total_labels</span> <span class="o">=</span> <span class="n">natsort</span><span class="p">.</span><span class="n">natsorted</span><span class="p">(</span><span class="n">all_lables</span><span class="p">)</span>
+      </code></pre></div></div>
+      <p>these sorted lists will be used to get each individual image and its corresponding label (labels are also images for segmentation tasks).</p>
+      
+      <h2 id="breaking-down-__getitem__">Breaking down <code class="language-plaintext highlighter-rouge">__getitem__</code>:<a class="header-link" href="#breaking-down-__getitem__" title="Permalink"><span class="sr-only" style="display:none">Permalink</span><i class="fas fa-link"></i></a></h2>
+      <p><code class="language-plaintext highlighter-rouge">__getitem__</code> loads the images and labels and iterated through them using the <code class="language-plaintext highlighter-rouge">idx</code> index. in this function we can apply necessary transforms from <code class="language-plaintext highlighter-rouge">torchvision.transforms</code> or other necessary pre-processing steps with a withing this function (or using a separate class method)</p>
+      
+      <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="k">def</span> <span class="nf">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">idx</span><span class="p">):</span>
+      
+              <span class="n">img_loc</span> <span class="o">=</span> <span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">img_dir</span><span class="p">,</span> <span class="bp">self</span><span class="p">.</span><span class="n">total_imgs</span><span class="p">[</span><span class="n">idx</span><span class="p">])</span>
+              <span class="n">label_loc</span> <span class="o">=</span> <span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">label_dir</span><span class="p">,</span> <span class="bp">self</span><span class="p">.</span><span class="n">total_labels</span><span class="p">[</span><span class="n">idx</span><span class="p">])</span>
+              <span class="c1"># opening image using cv2 function
+      </span>        <span class="n">image</span> <span class="o">=</span> <span class="n">cv2</span><span class="p">.</span><span class="n">imread</span><span class="p">(</span><span class="n">img_loc</span><span class="p">)</span>
+              <span class="c1"># opening image with PIL package
+      </span>        <span class="n">label</span> <span class="o">=</span> <span class="n">Image</span><span class="p">.</span><span class="nb">open</span><span class="p">(</span><span class="n">label_loc</span><span class="p">)</span>  
+      
+              <span class="n">image</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">preprocessing</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">label</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="bp">self</span><span class="p">.</span><span class="n">image_scale</span><span class="p">)</span>
+      
+              <span class="s">'''===============applying transformations ===================='''</span>
+      
+              <span class="n">label</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">transform_label</span><span class="p">(</span><span class="n">label</span><span class="p">)</span>
+              <span class="n">image</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">transform_label</span><span class="p">(</span><span class="n">image</span><span class="p">)</span>
+      
+              <span class="k">return</span> <span class="n">image</span><span class="p">,</span> <span class="n">label</span>
+      </code></pre></div></div>
+      <p>i used the <code class="language-plaintext highlighter-rouge">cv2</code> as well as <code class="language-plaintext highlighter-rouge">PIL.Image</code> to load images from the label or image directory just to demonstrate the flexibility and how you can use either of the two you are most comfortable with.</p>
+      
+      <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>        <span class="n">img_loc</span> <span class="o">=</span> <span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">img_dir</span><span class="p">,</span> <span class="bp">self</span><span class="p">.</span><span class="n">total_imgs</span><span class="p">[</span><span class="n">idx</span><span class="p">])</span>
+              <span class="n">label_loc</span> <span class="o">=</span> <span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">label_dir</span><span class="p">,</span> <span class="bp">self</span><span class="p">.</span><span class="n">total_labels</span><span class="p">[</span><span class="n">idx</span><span class="p">])</span>
+      </code></pre></div></div>
+      <p>we join paths of the image/label directory with the image/label list we sorted earlier.
+      for example: <code class="language-plaintext highlighter-rouge">total_images</code> is the list of all the sorted images in the <code class="language-plaintext highlighter-rouge">img_dir</code> and <code class="language-plaintext highlighter-rouge">idx</code> provides an index for each individual image so that we have a complete path to the image/label to be loaded.</p>
+      
+      <p>we can invoke the <code class="language-plaintext highlighter-rouge">preprocessing()</code> class method to perform some additional processing steps and then finally apply the transforms to the image and label and then return an image with its corresponding label.</p>
+      <h2 id="__len__-method"><code class="language-plaintext highlighter-rouge">__len__</code> method:<a class="header-link" href="#__len__-method" title="Permalink"><span class="sr-only" style="display:none">Permalink</span><i class="fas fa-link"></i></a></h2>
+      <p>returns the len of the sample size so that the <code class="language-plaintext highlighter-rouge">Dataset</code> class knows how the number of iterations to be performed to load the entire dataset.</p>
+      
+      <h2 id="preprocessing-method"><code class="language-plaintext highlighter-rouge">preprocessing</code> method:<a class="header-link" href="#preprocessing-method" title="Permalink"><span class="sr-only" style="display:none">Permalink</span><i class="fas fa-link"></i></a></h2>
+      <p>a class method implemented which is exclusively not a part of the <code class="language-plaintext highlighter-rouge">torch.utils.data.Dataset</code> class but additionally added to the <code class="language-plaintext highlighter-rouge">CustomDataset</code> class as a class method. can be excluded if not needed.
+       I intentionally left it empty however it can be used to perform some preprocessing using cv2 for example: resizing, grayscale conversion, applying CLAHE, gemma correction and other similar cv2 operations.</p>
+      
+      <h1 id="perparing--data-for-training-with-dataloader">Perparing  data for training with DataLoader:<a class="header-link" href="#perparing--data-for-training-with-dataloader" title="Permalink"><span class="sr-only" style="display:none">Permalink</span><i class="fas fa-link"></i></a></h1>
+      
+      <h2 id="dataloader-to-load-customdataset">DataLoader to load <code class="language-plaintext highlighter-rouge">CustomDataset</code>:<a class="header-link" href="#dataloader-to-load-customdataset" title="Permalink"><span class="sr-only" style="display:none">Permalink</span><i class="fas fa-link"></i></a></h2>
+      
+      <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">CustomDataset</span>
+      <span class="kn">from</span> <span class="nn">torch.utils.data</span> <span class="kn">import</span> <span class="n">DataLoader</span><span class="p">,</span> <span class="n">random_split</span>
+      <span class="kn">from</span> <span class="nn">torchvision</span> <span class="kn">import</span> <span class="n">transforms</span> <span class="k">as</span> <span class="n">transforms</span>
+      
+      <span class="n">transform_label</span> <span class="o">=</span> <span class="n">transforms</span><span class="p">.</span><span class="n">Compose</span><span class="p">([</span><span class="n">transforms</span><span class="p">.</span><span class="n">ToTensor</span><span class="p">()</span> <span class="p">])</span>
+      
+      <span class="n">transform_image</span> <span class="o">=</span> <span class="n">transforms</span><span class="p">.</span><span class="n">Compose</span><span class="p">([</span><span class="n">transforms</span><span class="p">.</span><span class="n">ToTensor</span><span class="p">()])</span>
+      
+      <span class="n">dataset</span> <span class="o">=</span> <span class="n">CustomDataset</span><span class="p">(</span><span class="n">img_dir</span><span class="p">,</span> <span class="n">label_dir</span><span class="p">,</span> 
+                              <span class="n">transform_image</span><span class="o">=</span> <span class="n">transform_image</span><span class="p">,</span>
+                              <span class="n">transform_label</span><span class="o">=</span><span class="n">transform_label</span><span class="p">,</span>
+                              <span class="n">image_scale</span><span class="o">=</span><span class="p">.</span><span class="mi">5</span><span class="p">)</span>
+      
+      <span class="n">n_val</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">dataset</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.2</span><span class="p">)</span>
+      <span class="n">n_train</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">dataset</span><span class="p">)</span> <span class="o">-</span> <span class="n">n_val</span><span class="p">)</span>
+      <span class="n">train</span><span class="p">,</span> <span class="n">val</span> <span class="o">=</span> <span class="n">random_split</span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span> <span class="p">[</span><span class="n">n_train</span><span class="p">,</span> <span class="n">n_val</span><span class="p">])</span>
+      
+      <span class="n">train_loader</span> <span class="o">=</span> <span class="n">DataLoader</span><span class="p">(</span><span class="n">train</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
+      <span class="n">num_workers</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">pin_memory</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+      
+      <span class="n">val_loader</span> <span class="o">=</span> <span class="n">DataLoader</span><span class="p">(</span><span class="n">val</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span>
+      <span class="n">num_workers</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">pin_memory</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+      
+      </code></pre></div></div>
+      
+      <p>importing all the necessary packages</p>
+      <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">CustomDataset</span>
+      <span class="kn">from</span> <span class="nn">torch.utils.data</span> <span class="kn">import</span> <span class="n">DataLoader</span><span class="p">,</span> <span class="n">random_split</span>
+      <span class="kn">from</span> <span class="nn">torchvision</span> <span class="kn">import</span> <span class="n">transforms</span> <span class="k">as</span> <span class="n">transforms</span>
+      </code></pre></div></div>
+      <p>transforms like random rotation, resize, random crop and other PyTorch transforms can be applied with `torchvision. transform. Here I only applied the tensor conversion that converts the data to a PyTorch tensor.</p>
+      
+      <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">transform_label</span> <span class="o">=</span> <span class="n">transforms</span><span class="p">.</span><span class="n">Compose</span><span class="p">([</span><span class="n">transforms</span><span class="p">.</span><span class="n">ToTensor</span><span class="p">()</span> <span class="p">])</span>
+      
+      <span class="n">transform_image</span> <span class="o">=</span> <span class="n">transforms</span><span class="p">.</span><span class="n">Compose</span><span class="p">([</span><span class="n">transforms</span><span class="p">.</span><span class="n">ToTensor</span><span class="p">()])</span>
+      </code></pre></div></div>
+      <p>Now the next step is to make an instance of our <code class="language-plaintext highlighter-rouge">CustomDataset</code> class with all the necessary parameters.</p>
+      <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">dataset</span> <span class="o">=</span> <span class="n">CustomDataset</span><span class="p">(</span><span class="n">img_dir</span><span class="p">,</span> <span class="n">label_dir</span><span class="p">,</span> 
+                              <span class="n">transform_image</span><span class="o">=</span> <span class="n">transform_image</span><span class="p">,</span>
+                              <span class="n">transform_label</span><span class="o">=</span><span class="n">transform_label</span><span class="p">,</span>
+                              <span class="n">image_scale</span><span class="o">=</span><span class="p">.</span><span class="mi">5</span><span class="p">)</span>
+      </code></pre></div></div>
+      
+      <p>we can split our data set into <code class="language-plaintext highlighter-rouge">train</code> and <code class="language-plaintext highlighter-rouge">validation</code> set using random split</p>
+      <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">n_val</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">dataset</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.2</span><span class="p">)</span>
+      <span class="n">n_train</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">dataset</span><span class="p">)</span> <span class="o">-</span> <span class="n">n_val</span><span class="p">)</span>
+      <span class="n">train</span><span class="p">,</span> <span class="n">val</span> <span class="o">=</span> <span class="n">random_split</span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span> <span class="p">[</span><span class="n">n_train</span><span class="p">,</span> <span class="n">n_val</span><span class="p">])</span>
+      
+      </code></pre></div></div>
+      <p>make an iteratable generator from dataset for train and validation for training.</p>
+      <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">train_loader</span> <span class="o">=</span> <span class="n">DataLoader</span><span class="p">(</span><span class="n">train</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
+      <span class="n">num_workers</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">pin_memory</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+      
+      <span class="n">val_loader</span> <span class="o">=</span> <span class="n">DataLoader</span><span class="p">(</span><span class="n">val</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span>
+      <span class="n">num_workers</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">pin_memory</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+      
+      </code></pre></div></div>
+      <h1 id="iterate-through-the-dataloader">Iterate through the dataloader:<a class="header-link" href="#iterate-through-the-dataloader" title="Permalink"><span class="sr-only" style="display:none">Permalink</span><i class="fas fa-link"></i></a></h1>
+      
+      <p>dataloader can be iterated and returns an image, label pair with the specified batch size.</p>
+      
+      <p>for example, we defined our batch size to be 15 for <code class="language-plaintext highlighter-rouge">train_loader</code>. Considering our images are all grey-scaled (1 channelled) with a size of <code class="language-plaintext highlighter-rouge">512x512</code>, This will yield a PyTorch tensor of (15,1,512,512) 
+      with 15 samples each sample of 1 channel and 512 height and width</p>
+      
+      <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">for</span> <span class="n">img</span><span class="p">,</span> <span class="n">label</span> <span class="ow">in</span> <span class="p">(</span><span class="n">train_loader</span><span class="p">):</span>
+          
+          <span class="n">n</span><span class="p">,</span><span class="n">c</span><span class="p">,</span><span class="n">h</span><span class="p">,</span><span class="n">w</span> <span class="o">=</span><span class="p">(</span><span class="n">img</span><span class="p">.</span><span class="n">shape</span><span class="p">)</span>  <span class="c1">#shape of tensor = (15,1,512,512)
+      </span>    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+              <span class="n">im</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">squeeze</span><span class="p">(</span><span class="n">img</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="p">:,</span> <span class="p">:,</span> <span class="p">:].</span><span class="n">numpy</span><span class="p">())</span>
+              <span class="n">la</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">squeeze</span><span class="p">(</span><span class="n">label</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="p">:,</span> <span class="p">:,</span> <span class="p">:].</span><span class="n">numpy</span><span class="p">())</span>
+              <span class="n">visualize</span><span class="p">(</span><span class="n">im</span><span class="p">,</span> <span class="n">la</span><span class="p">)</span>
+      
+      
+      </code></pre></div></div>
+      <p>we can convert the tensors to NumPy arrays and plot them or use them straight for training just like pre-loaded datasets.</p>
+      
+      
+              
+            </section>
+
+              <div class="entry-footer">
+                <i class="bi bi-folder"></i>
+                <ul class="cats">
+                  <li><a href="#">Deep Learning</a></li>
+                </ul>
+
+                <i class="bi bi-tags"></i>
+                <ul class="tags">
+                  <li><a href="#">DataLoader </a></li>
+                  <li><a href="#">Dataset</a></li>
+                  <li><a href="#">Pytorch</a></li>
+                  <li><a href="#">Training</a></li>
+                </ul>
+              </div>
+
+            </article><!-- End blog entry -->
+
+            <div class="blog-author d-flex align-items-center">
+              <img src="assets/img/team/team-3.jpg" class="rounded-circle float-left" alt="">
+              <div>
+                <h4>Snawar Hussain</h4>
+                <div class="social-links">
+                  <a href="https://twitter.com/SnawarHussain"><i class="bi bi-twitter"></i></a>
+                  <a href="https://github.com/snawarhussain"><i class="bi bi-github"></i></a>
+                  <a href="https://instagram.com/snawar_hussain"><i class="biu bi-instagram"></i></a>
+                </div>
+                <p>
+                  PhD fellow at Zhejiang University
+                  majoring in Computer Science
+                  Research Areas: Machine Vision, Computation Ethology, BCI
+                </p>
+              </div>
+            </div><!-- End blog author bio -->
+
+            <div class="blog-comments">
+
+              <h4 class="comments-count">8 Comments</h4>
+
+              <div id="comment-1" class="comment">
+                <div class="d-flex">
+                  <div class="comment-img"><img src="assets/img/blog/comments-1.jpg" alt=""></div>
+                  <div>
+                    <h5><a href="">Georgia Reader</a> <a href="#" class="reply"><i class="bi bi-reply-fill"></i> Reply</a></h5>
+                    <time datetime="2020-01-01">01 Jan, 2020</time>
+                    <p>
+                      Et rerum totam nisi. Molestiae vel quam dolorum vel voluptatem et et. Est ad aut sapiente quis molestiae est qui cum soluta.
+                      Vero aut rerum vel. Rerum quos laboriosam placeat ex qui. Sint qui facilis et.
+                    </p>
+                  </div>
+                </div>
+              </div><!-- End comment #1 -->
+
+              <div id="comment-2" class="comment">
+                <div class="d-flex">
+                  <div class="comment-img"><img src="assets/img/blog/comments-2.jpg" alt=""></div>
+                  <div>
+                    <h5><a href="">Aron Alvarado</a> <a href="#" class="reply"><i class="bi bi-reply-fill"></i> Reply</a></h5>
+                    <time datetime="2020-01-01">01 Jan, 2020</time>
+                    <p>
+                      Ipsam tempora sequi voluptatem quis sapiente non. Autem itaque eveniet saepe. Officiis illo ut beatae.
+                    </p>
+                  </div>
+                </div>
+
+                <div id="comment-reply-1" class="comment comment-reply">
+                  <div class="d-flex">
+                    <div class="comment-img"><img src="assets/img/blog/comments-3.jpg" alt=""></div>
+                    <div>
+                      <h5><a href="">Lynda Small</a> <a href="#" class="reply"><i class="bi bi-reply-fill"></i> Reply</a></h5>
+                      <time datetime="2020-01-01">01 Jan, 2020</time>
+                      <p>
+                        Enim ipsa eum fugiat fuga repellat. Commodi quo quo dicta. Est ullam aspernatur ut vitae quia mollitia id non. Qui ad quas nostrum rerum sed necessitatibus aut est. Eum officiis sed repellat maxime vero nisi natus. Amet nesciunt nesciunt qui illum omnis est et dolor recusandae.
+
+                        Recusandae sit ad aut impedit et. Ipsa labore dolor impedit et natus in porro aut. Magnam qui cum. Illo similique occaecati nihil modi eligendi. Pariatur distinctio labore omnis incidunt et illum. Expedita et dignissimos distinctio laborum minima fugiat.
+
+                        Libero corporis qui. Nam illo odio beatae enim ducimus. Harum reiciendis error dolorum non autem quisquam vero rerum neque.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div id="comment-reply-2" class="comment comment-reply">
+                    <div class="d-flex">
+                      <div class="comment-img"><img src="assets/img/blog/comments-4.jpg" alt=""></div>
+                      <div>
+                        <h5><a href="">Sianna Ramsay</a> <a href="#" class="reply"><i class="bi bi-reply-fill"></i> Reply</a></h5>
+                        <time datetime="2020-01-01">01 Jan, 2020</time>
+                        <p>
+                          Et dignissimos impedit nulla et quo distinctio ex nemo. Omnis quia dolores cupiditate et. Ut unde qui eligendi sapiente omnis ullam. Placeat porro est commodi est officiis voluptas repellat quisquam possimus. Perferendis id consectetur necessitatibus.
+                        </p>
+                      </div>
+                    </div>
+
+                  </div><!-- End comment reply #2-->
+
+                </div><!-- End comment reply #1-->
+
+              </div><!-- End comment #2-->
+
+              <div id="comment-3" class="comment">
+                <div class="d-flex">
+                  <div class="comment-img"><img src="assets/img/blog/comments-5.jpg" alt=""></div>
+                  <div>
+                    <h5><a href="">Nolan Davidson</a> <a href="#" class="reply"><i class="bi bi-reply-fill"></i> Reply</a></h5>
+                    <time datetime="2020-01-01">01 Jan, 2020</time>
+                    <p>
+                      Distinctio nesciunt rerum reprehenderit sed. Iste omnis eius repellendus quia nihil ut accusantium tempore. Nesciunt expedita id dolor exercitationem aspernatur aut quam ut. Voluptatem est accusamus iste at.
+                      Non aut et et esse qui sit modi neque. Exercitationem et eos aspernatur. Ea est consequuntur officia beatae ea aut eos soluta. Non qui dolorum voluptatibus et optio veniam. Quam officia sit nostrum dolorem.
+                    </p>
+                  </div>
+                </div>
+
+              </div><!-- End comment #3 -->
+
+              <div id="comment-4" class="comment">
+                <div class="d-flex">
+                  <div class="comment-img"><img src="assets/img/blog/comments-6.jpg" alt=""></div>
+                  <div>
+                    <h5><a href="">Kay Duggan</a> <a href="#" class="reply"><i class="bi bi-reply-fill"></i> Reply</a></h5>
+                    <time datetime="2020-01-01">01 Jan, 2020</time>
+                    <p>
+                      Dolorem atque aut. Omnis doloremque blanditiis quia eum porro quis ut velit tempore. Cumque sed quia ut maxime. Est ad aut cum. Ut exercitationem non in fugiat.
+                    </p>
+                  </div>
+                </div>
+
+              </div><!-- End comment #4 -->
+
+              <!-- <div class="reply-form">
+                <h4>Leave a Reply</h4>
+                <p>Your email address will not be published. Required fields are marked * </p>
+                <form action="">
+                  <div class="row">
+                    <div class="col-md-6 form-group">
+                      <input name="name" type="text" class="form-control" placeholder="Your Name*">
+                    </div>
+                    <div class="col-md-6 form-group">
+                      <input name="email" type="text" class="form-control" placeholder="Your Email*">
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col form-group">
+                      <input name="website" type="text" class="form-control" placeholder="Your Website">
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col form-group">
+                      <textarea name="comment" class="form-control" placeholder="Your Comment*"></textarea>
+                    </div>
+                  </div>
+                  <button type="submit" class="btn btn-primary">Post Comment</button>
+
+                </form>
+
+              </div> -->
+
+            </div><!-- End blog comments -->
+
+          </div><!-- End blog entries list -->
+
+          <div class="col-lg-4">
+
+            <div class="sidebar">
+
+              <h3 class="sidebar-title">Search</h3>
+              <div class="sidebar-item search-form">
+                <form action="">
+                  <input type="text">
+                  <button type="submit"><i class="bi bi-search"></i></button>
+                </form>
+              </div><!-- End sidebar search formn-->
+
+              <h3 class="sidebar-title">Categories</h3>
+              <div class="sidebar-item categories">
+                <ul>
+                  <li><a href="#">Blog <span>(25)</span></a></li>
+                  <li><a href="#">Deep Learning <span>(12)</span></a></li>
+                  <li><a href="#">Python <span>(5)</span></a></li>
+                  <li><a href="#">Pytorch <span>(22)</span></a></li>
+                  <li><a href="#">Training <span>(8)</span></a></li>
+                  <!-- <li><a href="#">Educaion <span>(14)</span></a></li> -->
+                </ul>
+              </div><!-- End sidebar categories-->
+
+              <h3 class="sidebar-title">Recent Posts</h3>
+              <div class="sidebar-item recent-posts">
+                <div class="post-item clearfix">
+                  <img src="assets/img/blog/blog-recent-1.jpg" alt="">
+                  <h4><a href="blog-single.html">Different ways to load custom dataset in TensorFlow 2 for classification</a></h4>
+                  <time datetime="2021-08-10">August 10, 2021</time>
+                </div>
+
+                <div class="post-item clearfix">
+                  <img src="assets/img/blog/blog-recent-2.jpg" alt="">
+                  <h4><a href="blog-single.html">Working with custom datasets in PyTorch
+                  </a></h4>
+                  <time datetime="2021-07-12">July 12, 2021</time>
+                </div>
+
+                <div class="post-item clearfix">
+                  <img src="assets/img/blog/blog-recent-3.jpg" alt="">
+                  <h4><a href="blog-single.html">Ubuntu 20.04 resolution stuck at 1280x720, permanent fix
+                  </a></h4>
+                  <time datetime="2021-07-02">July 2, 2021</time>
+                </div>
+
+                <div class="post-item clearfix">
+                  <img src="assets/img/blog/blog-recent-4.jpg" alt="">
+                  <h4><a href="blog-single.html">Django3.2.5 with Apache2 and mod_wsgi
+                  </a></h4>
+                  <time datetime="2021-07-02">July 2, 2021</time>
+                </div>
+
+                <div class="post-item clearfix">
+                  <img src="assets/img/blog/blog-recent-5.jpg" alt="">
+                  <h4><a href="blog-single.html">Code editors and IDEs for Python
+                  </a></h4>
+                  <time datetime="2021-07-01">July 1, 2021</time>
+                </div>
+
+              </div><!-- End sidebar recent posts-->
+
+              <h3 class="sidebar-title">Tags</h3>
+              <div class="sidebar-item tags">
+                <ul>
+                  <li><a href="#">Dataloader</a></li>
+                  <li><a href="#">IT</a></li>
+                  <li><a href="#">Business</a></li>
+                  <li><a href="#">PyTorch</a></li>
+                  <li><a href="#">Design</a></li>
+                  <li><a href="#">IDE</a></li>
+                  <li><a href="#">Dataset</a></li>
+                  <li><a href="#">Deep Learning</a></li>
+                  <li><a href="#">Labeling</a></li>
+                  <li><a href="#">Tips</a></li>
+                  <li><a href="#">Django</a></li>
+                </ul>
+              </div><!-- End sidebar tags-->
+
+            </div><!-- End sidebar -->
+
+          </div><!-- End blog sidebar -->
+
+        </div>
+
+      </div>
+    </section><!-- End Blog Single Section -->
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer" class="footer">
+
+    <!-- <div class="footer-newsletter">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-12 text-center">
+            <h4>Our Newsletter</h4>
+            <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna</p>
+          </div>
+          <div class="col-lg-6">
+            <form action="" method="post">
+              <input type="email" name="email"><input type="submit" value="Subscribe">
+            </form>
+          </div>
+        </div>
+      </div>
+    </div> -->
+
+    <div class="footer-top">
+      <div class="container">
+        <div class="row gy-4">
+          <div class="col-lg-5 col-md-12 footer-info">
+            <a href="index.html" class="logo d-flex align-items-center">
+              <img src="assets/img/logo.png" alt="" text="en">
+              <img src="assets/img/logo1-3.jpg.png" alt="" text="cn">
+              <span></span>
+            </a>
+            <p text="en">Hangzhou Hyperchip Software Technology Co., Ltd. was founded in 2022 and headquartered in Hangzhou, commenced operations as a software company, focusing on research and development of AI</p>
+            <p text="cn">Hyperchip Technology 杭州海启软件科技有限公司成立于2022年，总部位于杭州。起源是主营软件服务业务。核心战略是成为一家国际人工智能的研发和咨询公司</p>
+            <div class="social-links mt-3">
+              <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
+              <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
+              <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
+              <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
+            </div>
+          </div>
+
+          <div class="col-lg-2 col-6 footer-links">
+            <h4 text="en">Follow Us on Wechat</h4>
+            <h4 text="cn">关注我们公众号</h4>
+            <img class="" id="" src="assets\img\amir-wechat.jpg" style="width:130px">
+            <!-- 
+            <ul>
+
+              <li><i class="bi bi-chevron-right"></i> <a href="#">Home</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a href="#">About us</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a href="#">Services</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a href="#">Terms of service</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a href="#">Privacy policy</a></li>
+            </ul> -->
+          </div>
+
+          <div class="col-lg-2 col-6 footer-links">
+            <h4 text="en">Our Services</h4>
+            <h4 text="cn">我们提供的服务</h4>
+            <ul text="en">
+              <li><i class="bi bi-chevron-right"></i> <a >Algorithm Research</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a >Pose Estimation</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a >Image Processing</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a >Website Design</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a >Service Application</a></li>
+            </ul>
+            <ul text="cn">
+              <li><i class="bi bi-chevron-right"></i> <a >算法研究</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a >姿势估计</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a >图像处理</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a >网站设计</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a >服务应用程序</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-3 col-md-12 footer-contact text-center text-md-start">
+            <h4 text="en">Contact Us</h4>
+            <h4 text="cn">联系我们</h4>
+            <p text="cn">
+              杭州国际人才创业创新园祥园路171号1幢10楼1012室<br><br>
+              <strong>电话:</strong> +86 158 6842 0294<br>
+              <strong>邮件:</strong> amir_sh@outlook.my<br>
+
+            </p>
+            <p text="en">
+              Hangzhou International Talents Entrepreneurship & Innovation Park, <br>
+              Room 1012, 10th Floor, Building 1, No. 171, Xiangyuan Road<br>
+              Hangzhou, China <br><br>
+              <strong>Phone:</strong> +86 158 6842 0294<br>
+              <strong>Email:</strong> amir_sh@outlook.my<br>
+
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="copyright" text="en">
+        &copy; Copyright <strong><span >Hyperchip Technology</span></strong>. All Rights Reserved
+      </div>
+      <div class="copyright" text="cn">
+        ©版权所有 <strong><span text="cn">Hyperchip Technology</span></strong> 保留所有权利
+      </div>
+
+      <div class="credits">
+        <!-- All the links in the footer should remain intact. -->
+        <!-- You can delete the links only if you purchased the pro version. -->
+        <!-- Licensing information: https://bootstrapmade.com/license/ -->
+        <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/Hyperchip Technology-bootstrap-startup-template/ -->
+        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+      </div>
+    </div>
+  </footer><!-- End Footer -->
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="assets/js/main.js"></script>
+  <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+  <script>function toggleLanguage(language) {
+    $('[text="cn"]').hide(); // hide all lang attributes on start.
+    $('[text="en"]').show(); // show just Korean text (you can change it)
+    $('#text-switch').change(function () { // put onchange event when user select option from select
+        var text = $(this).val(); // decide which language to display using switch case. The rest is obvious (i think)
+        
+        switch (text) {
+            case 'en':
+                $('[text]').hide();
+                $('[text="en"]').show();
+            break;
+            case 'cn':
+                $('[text]').hide();
+                $('[text="cn"]').show();
+            break;
+            default:
+                $('[text]').hide();
+                $('[text="cn"]').show();
+            }
+         
+    });
+  }
+    </script>
+    <script>
+      function toggleExtra(language){ //This function is for the "Read More" button, it toggles more text on the page. If the function carries "en" it means English, if it passes "cn" it means Chinese
+      var text = language;
+      // window.alert(language);
+
+       // decide which language to display using switch case. The rest is obvious (i think)
+        
+        switch (text) {
+            case 'English':
+                var x = document.getElementById("extra_en"); 
+                if (x.style.display === "none") {
+                    x.style.display = "block";
+                } else {
+                 x.style.display = "none";
+               }
+            break;
+            case 'Chinese':
+                var x = document.getElementById("extra_cn"); 
+                if (x.style.display === "none") {
+                    x.style.display = "block";
+                } else {
+                x.style.display = "none";
+                }
+            break;
+            default:     
+            }
+      }
+    </script>
+    <script>
+
+      var usrlang = navigator.language 
+      //Check to see what the preferred language of the browser is, then set accordingly 
+      if (usrlang === "zh" || usrlang === "zh-Hans"|| usrlang === "zh-CN") {
+          $('[text]').hide(); //init in chinese
+          $('[text="cn"]').show();
+      }else{
+          $('[text]').hide();
+          $('[text="en"]').show();
+      }
+
+      function toggleLanguage(language) {
+        let description = document.getElementById("description");
+        if (language === "Chinese") {
+             $('[text]').hide();
+             $('[text="cn"]').show();
+        }
+        else {
+             $('[text]').hide();
+             $('[text="en"]').show();
+        }
+      }
+    </script>
+
+</body>
+
+</html>

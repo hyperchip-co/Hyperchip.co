@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Ubuntu 20.04 resolution stuck at 1280x720, permanent fix</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="assets/img/h-touch-icon.png" rel="icon">
+  <link href="assets/img/h-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="assets/css/style.css" rel="stylesheet">
+
+  <!-- =======================================================
+  * Template Name: FlexStart - v1.11.1
+  * Template URL: https://bootstrapmade.com/flexstart-bootstrap-startup-template/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="header fixed-top">
+    <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
+
+      <a href="index.html" class="logo d-flex align-items-center">
+        <img src="assets/img/logo1-3.jpg.png" alt="" text="cn">
+        <img src="assets/img/logo.png" alt="" text="en">
+        <span></span>
+      </a>
+
+      <nav id="navbar" class="navbar">
+        <ul>
+
+          
+          <!-- <p>
+              <span lang="ko">한국어 텍스트</span>
+              <span lang="en">Text in English</span>
+          </p> -->
+          <li class="container">
+            <!-- <h1 id="description">Show English Text</h1> -->
+             <div class="dropdown" text="en">
+              <button class="btn btn-default dropdown-toggle"onclick="toggleLanguage('Chinese')" type="button" data-toggle="dropdown"><img src="assets/img/en-flag.png" alt="" style="margin-right: 15px;width:20px">Language
+              <span class="caret"></span></button>
+              <ul class="dropdown-menu">
+                <li onclick="toggleLanguage('English')"><a href="#">English</a></li>
+                <li onclick="toggleLanguage('Chinese')"><a href="#">中文</a></li>
+              </ul>
+            </div>
+            <div class="dropdown" text="cn">
+              <button class="btn btn-default dropdown-toggle"onclick="toggleLanguage('English')" type="button" data-toggle="dropdown"><img src="assets/img/cn-flag.png" alt="" style="margin-right: 15px;width:20px">语言
+              <span class="caret"></span></button>
+              <ul class="dropdown-menu ">
+                <li onclick="toggleLanguage('English')"><a href="#">English</a></li>
+                <li onclick="toggleLanguage('Chinese')"><a href="#">中文</a></li>
+              </ul>
+            </div>
+          </li>
+          <li><a class="nav-link scrollto " href="index.html" text="en">Home</a></li>
+          <li><a class="nav-link scrollto " href="index.html" text="cn">首页</a></li>
+          <li><a class="nav-link scrollto" href="index.html" text="en">About</a></li>
+          <li><a class="nav-link scrollto" href="index.html" text="cn">关于我们</a></li>
+          <li><a class="nav-link scrollto active" text="en" href="#blog">Blog</a></li>
+          <li><a class="nav-link scrollto active" text="cn" href="#blog">新闻</a></li>
+          <!-- <li><a class="nav-link scrollto" href="#portfolio">Portfolio</a></li> -->
+          <li><a class="nav-link scrollto" href="index.html" text="en">Team</a></li>
+          <li><a class="nav-link scrollto" href="index.html" text="cn">团队</a></li>
+          <!-- <li><a href="blog.html">Blog</a></li> -->
+          <!-- <li class="dropdown"><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down"></i></a> -->
+            <!-- <ul>
+              <li><a href="#">Drop Down 1</a></li>
+              <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-right"></i></a>
+                <ul>
+                  <li><a href="#">Deep Drop Down 1</a></li>
+                  <li><a href="#">Deep Drop Down 2</a></li>
+                  <li><a href="#">Deep Drop Down 3</a></li>
+                  <li><a href="#">Deep Drop Down 4</a></li>
+                  <li><a href="#">Deep Drop Down 5</a></li>
+                </ul>
+              </li>
+              <li><a href="#">Drop Down 2</a></li>
+              <li><a href="#">Drop Down 3</a></li>
+              <li><a href="#">Drop Down 4</a></li>
+            </ul>
+          </li> -->
+          <!-- <li><a class="nav-link scrollto" href="#contact">Contact</a></li> -->
+          <li><a class="getstarted scrollto" href="#contact" text="en">Contact Us</a></li>
+          <li><a class="getstarted scrollto" href="#contact" text="cn">联系我们</a></li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+
+    </div>
+  </header><!-- End Header -->
+
+  <main id="main">
+
+    <!-- ======= Breadcrumbs ======= -->
+    <section class="breadcrumbs">
+      <div class="container">
+
+        <ol>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li>Ubuntu 20.04 resolution stuck at 1280x720, permanent fix</li>
+        </ol>
+        <h2>Ubuntu 20.04 resolution stuck at 1280x720, permanent fix</h2>
+
+      </div>
+    </section><!-- End Breadcrumbs -->
+
+    <!-- ======= Blog Single Section ======= -->
+    <section id="blog" class="blog">
+      <div class="container" data-aos="fade-up">
+
+        <div class="row">
+
+          <div class="col-lg-8 entries">
+
+            <article class="entry entry-single">
+
+              <div class="entry-img">
+                <img src="assets/img/blog/blog-3.jpg" alt="" class="img-fluid">
+              </div>
+
+              <h2 class="entry-title">
+                <a href="blog-single.html">Ubuntu 20.04 resolution stuck at 1280x720, permanent fix</a>
+              </h2>
+
+              <div class="entry-meta">
+                <ul>
+                  <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a href="blog-single.html">Snawar Hussain</a></li>
+                  <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a href="blog-single.html"><time datetime="2020-01-01">July 12, 2021</time></a></li>
+                  <li class="d-flex align-items-center"><i class="bi bi-chat-dots"></i> <a href="blog-single.html">8 Comments</a></li>
+                </ul>
+              </div>
+
+
+              <section class="page__content e-content" itemprop="text">
+        
+                <aside class="sidebar__right ">
+                  <nav class="toc">
+                    <header><h4 class="nav__title"><i class="fas fa-list"></i> Contents of this post</h4></header>
+                    <ul class="toc__menu"><li><a href="#creating-a-new-modeline">Creating a new modeline</a></li><li><a href="#make-the-fix-permanent">Make the fix permanent</a></li></ul>
+      
+                  </nav>
+                </aside>
+              
+              <h1 id="creating-a-new-modeline">Creating a new modeline<a class="header-link" href="#creating-a-new-modeline" title="Permalink"><span class="sr-only" style="display:none">Permalink</span><i class="fas fa-link"></i></a></h1>
+      
+      <p>create a new modeline according to your monitor resolution.</p>
+      <div class="language-s highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w"> </span><span class="n">sudo</span><span class="w"> </span><span class="n">cvt</span><span class="w"> </span><span class="m">1920</span><span class="w"> </span><span class="m">1080</span><span class="w">
+      </span></code></pre></div></div>
+      <p>the output to this will be something like:
+      <code class="language-plaintext highlighter-rouge">Modeline "1920x1080_60.00" 173.00 1920 2048 2248 2576 1080 1083 1088 1120 -hsync +vsync</code></p>
+      
+      <p>copy everthing after <code class="language-plaintext highlighter-rouge">Modeline</code> from the output to add new mode to xrandr.</p>
+      <div class="language-s highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">sudo</span><span class="w"> </span><span class="n">xrandr</span><span class="w"> </span><span class="o">--</span><span class="n">newmode</span><span class="w"> </span><span class="s2">"1920x1080_60.00"</span><span class="w"> </span><span class="m">173.00</span><span class="w"> </span><span class="m">1920</span><span class="w"> </span><span class="m">2048</span><span class="w"> </span><span class="m">2248</span><span class="w"> </span><span class="m">2576</span><span class="w"> </span><span class="m">1080</span><span class="w"> </span><span class="m">1083</span><span class="w"> </span><span class="m">1088</span><span class="w"> </span><span class="m">1120</span><span class="w"> </span><span class="o">-</span><span class="n">hsync</span><span class="w"> </span><span class="o">+</span><span class="n">vsync</span><span class="err">`</span><span class="w">
+      </span></code></pre></div></div>
+      <p>type <code class="language-plaintext highlighter-rouge">xrandr</code> or <code class="language-plaintext highlighter-rouge">xrandr -q</code> to see all the available outputs including the one that is connected. for example <code class="language-plaintext highlighter-rouge">VGA1</code> or <code class="language-plaintext highlighter-rouge">DP-1</code>.</p>
+      <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ xrandr
+      Screen 0: minimum 320 x 200, current 1280 x 800, maximum 4096 x 4096
+      VGA1 disconnected (normal left inverted right x axis y axis)
+      LVDS1 connected 1280x800+0+0 inverted X and Y axis (normal left inverted right x axis y axis) 261mm x 163mm
+         1280x800       59.8*+
+         1024x768       60.0
+         800x600        60.3     56.2
+         640x480        59.9
+      DVI1 disconnected (normal left inverted right x axis y axis)
+      TV1 disconnected (normal left inverted right x axis y axis)
+      </code></pre></div></div>
+      
+      <p>after that type the command:</p>
+      <div class="language-s highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">sudo</span><span class="w"> </span><span class="n">xrandr</span><span class="w"> </span><span class="o">--</span><span class="n">addmode</span><span class="w"> </span><span class="n">LVDS1</span><span class="w"> </span><span class="s2">"1920x1080_60.00"</span><span class="w">
+      
+      </span></code></pre></div></div>
+      
+      <p>change the <code class="language-plaintext highlighter-rouge">LVSD1</code> with your connected device name that you found using <code class="language-plaintext highlighter-rouge">xrandr</code> command and the mode name with the text that appear after <code class="language-plaintext highlighter-rouge">Modeline</code> in the output of <code class="language-plaintext highlighter-rouge">cvt</code> command.
+      this should change the resolution of the screen.</p>
+      
+      <h1 id="make-the-fix-permanent">Make the fix permanent<a class="header-link" href="#make-the-fix-permanent" title="Permalink"><span class="sr-only" style="display:none">Permalink</span><i class="fas fa-link"></i></a></h1>
+      <p>if you leave it here, the resolution’s gonna switch back to whatever it was before after a reboot. TO make this fix permanent
+      we need to add these configuration in <code class="language-plaintext highlighter-rouge">xorg.conf</code> file so they will excecute at each start up</p>
+      
+      <p>for that open up <code class="language-plaintext highlighter-rouge">xorg.conf</code> file located at <code class="language-plaintext highlighter-rouge">/etc/X11/xorg.conf</code> with a text editor like <code class="language-plaintext highlighter-rouge">vim</code></p>
+      <div class="language-s highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">sudo</span><span class="w"> </span><span class="n">vim</span><span class="w"> </span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">X11</span><span class="o">/</span><span class="n">xorg.conf</span><span class="w">
+      </span></code></pre></div></div>
+      <p>this command will make a new xorg.conf file if it wasn’t there already.
+      and copy these line into the file</p>
+      <div class="language-s highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Section</span><span class="w"> </span><span class="s2">"Monitor"</span><span class="w">
+      </span><span class="n">Identifier</span><span class="w">  </span><span class="s2">"LVSD1"</span><span class="w">
+      </span><span class="n">Modeline</span><span class="w"> </span><span class="s2">"1920x1080_60.00"</span><span class="w">  </span><span class="m">173.00</span><span class="w">  </span><span class="m">1920</span><span class="w"> </span><span class="m">2048</span><span class="w"> </span><span class="m">2248</span><span class="w"> </span><span class="m">2576</span><span class="w">  </span><span class="m">1080</span><span class="w"> </span><span class="m">1083</span><span class="w"> </span><span class="m">1088</span><span class="w"> </span><span class="m">1120</span><span class="w"> </span><span class="o">-</span><span class="n">hsync</span><span class="w"> </span><span class="o">+</span><span class="n">vsync</span><span class="w">
+      </span><span class="n">EndSection</span><span class="w">
+      </span></code></pre></div></div>
+      <p>where the <code class="language-plaintext highlighter-rouge">Modeline</code> configurations should be replaced with the output of <code class="language-plaintext highlighter-rouge">cvt</code>.</p>
+      
+      <p>the <code class="language-plaintext highlighter-rouge">xorg.conf</code> file is excecuted rather later on after startup so once you log in with your user account the resolution will be changed according to the configurations added. you might see the initial low resolution at the login page.</p>
+      
+              
+            </section>
+
+              
+          
+
+              <div class="entry-footer">
+                <i class="bi bi-folder"></i>
+                <ul class="cats">
+                  <li><a href="#">Deep Learning</a></li>
+                </ul>
+
+                <i class="bi bi-tags"></i>
+                <ul class="tags">
+                  <li><a href="#">Screen Resolution </a></li>
+                  <li><a href="#">Ubuntu 20.04</a></li>
+                  <li><a href="#">xorg.conf</a></li>
+                  <li><a href="#">xrandr</a></li>
+                </ul>
+              </div>
+
+            </article><!-- End blog entry -->
+
+            <div class="blog-author d-flex align-items-center">
+              <img src="assets/img/team/team-3.jpg" class="rounded-circle float-left" alt="">
+              <div>
+                <h4>Snawar Hussain</h4>
+                <div class="social-links">
+                  <a href="https://twitter.com/SnawarHussain"><i class="bi bi-twitter"></i></a>
+                  <a href="https://github.com/snawarhussain"><i class="bi bi-github"></i></a>
+                  <a href="https://instagram.com/snawar_hussain"><i class="biu bi-instagram"></i></a>
+                </div>
+                <p>
+                  PhD fellow at Zhejiang University
+                  majoring in Computer Science
+                  Research Areas: Machine Vision, Computation Ethology, BCI
+                </p>
+              </div>
+            </div><!-- End blog author bio -->
+
+            <div class="blog-comments">
+
+              <h4 class="comments-count">8 Comments</h4>
+
+              <div id="comment-1" class="comment">
+                <div class="d-flex">
+                  <div class="comment-img"><img src="assets/img/blog/comments-1.jpg" alt=""></div>
+                  <div>
+                    <h5><a href="">Georgia Reader</a> <a href="#" class="reply"><i class="bi bi-reply-fill"></i> Reply</a></h5>
+                    <time datetime="2020-01-01">01 Jan, 2020</time>
+                    <p>
+                      Et rerum totam nisi. Molestiae vel quam dolorum vel voluptatem et et. Est ad aut sapiente quis molestiae est qui cum soluta.
+                      Vero aut rerum vel. Rerum quos laboriosam placeat ex qui. Sint qui facilis et.
+                    </p>
+                  </div>
+                </div>
+              </div><!-- End comment #1 -->
+
+              <div id="comment-2" class="comment">
+                <div class="d-flex">
+                  <div class="comment-img"><img src="assets/img/blog/comments-2.jpg" alt=""></div>
+                  <div>
+                    <h5><a href="">Aron Alvarado</a> <a href="#" class="reply"><i class="bi bi-reply-fill"></i> Reply</a></h5>
+                    <time datetime="2020-01-01">01 Jan, 2020</time>
+                    <p>
+                      Ipsam tempora sequi voluptatem quis sapiente non. Autem itaque eveniet saepe. Officiis illo ut beatae.
+                    </p>
+                  </div>
+                </div>
+
+                <div id="comment-reply-1" class="comment comment-reply">
+                  <div class="d-flex">
+                    <div class="comment-img"><img src="assets/img/blog/comments-3.jpg" alt=""></div>
+                    <div>
+                      <h5><a href="">Lynda Small</a> <a href="#" class="reply"><i class="bi bi-reply-fill"></i> Reply</a></h5>
+                      <time datetime="2020-01-01">01 Jan, 2020</time>
+                      <p>
+                        Enim ipsa eum fugiat fuga repellat. Commodi quo quo dicta. Est ullam aspernatur ut vitae quia mollitia id non. Qui ad quas nostrum rerum sed necessitatibus aut est. Eum officiis sed repellat maxime vero nisi natus. Amet nesciunt nesciunt qui illum omnis est et dolor recusandae.
+
+                        Recusandae sit ad aut impedit et. Ipsa labore dolor impedit et natus in porro aut. Magnam qui cum. Illo similique occaecati nihil modi eligendi. Pariatur distinctio labore omnis incidunt et illum. Expedita et dignissimos distinctio laborum minima fugiat.
+
+                        Libero corporis qui. Nam illo odio beatae enim ducimus. Harum reiciendis error dolorum non autem quisquam vero rerum neque.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div id="comment-reply-2" class="comment comment-reply">
+                    <div class="d-flex">
+                      <div class="comment-img"><img src="assets/img/blog/comments-4.jpg" alt=""></div>
+                      <div>
+                        <h5><a href="">Sianna Ramsay</a> <a href="#" class="reply"><i class="bi bi-reply-fill"></i> Reply</a></h5>
+                        <time datetime="2020-01-01">01 Jan, 2020</time>
+                        <p>
+                          Et dignissimos impedit nulla et quo distinctio ex nemo. Omnis quia dolores cupiditate et. Ut unde qui eligendi sapiente omnis ullam. Placeat porro est commodi est officiis voluptas repellat quisquam possimus. Perferendis id consectetur necessitatibus.
+                        </p>
+                      </div>
+                    </div>
+
+                  </div><!-- End comment reply #2-->
+
+                </div><!-- End comment reply #1-->
+
+              </div><!-- End comment #2-->
+
+              <div id="comment-3" class="comment">
+                <div class="d-flex">
+                  <div class="comment-img"><img src="assets/img/blog/comments-5.jpg" alt=""></div>
+                  <div>
+                    <h5><a href="">Nolan Davidson</a> <a href="#" class="reply"><i class="bi bi-reply-fill"></i> Reply</a></h5>
+                    <time datetime="2020-01-01">01 Jan, 2020</time>
+                    <p>
+                      Distinctio nesciunt rerum reprehenderit sed. Iste omnis eius repellendus quia nihil ut accusantium tempore. Nesciunt expedita id dolor exercitationem aspernatur aut quam ut. Voluptatem est accusamus iste at.
+                      Non aut et et esse qui sit modi neque. Exercitationem et eos aspernatur. Ea est consequuntur officia beatae ea aut eos soluta. Non qui dolorum voluptatibus et optio veniam. Quam officia sit nostrum dolorem.
+                    </p>
+                  </div>
+                </div>
+
+              </div><!-- End comment #3 -->
+
+              <div id="comment-4" class="comment">
+                <div class="d-flex">
+                  <div class="comment-img"><img src="assets/img/blog/comments-6.jpg" alt=""></div>
+                  <div>
+                    <h5><a href="">Kay Duggan</a> <a href="#" class="reply"><i class="bi bi-reply-fill"></i> Reply</a></h5>
+                    <time datetime="2020-01-01">01 Jan, 2020</time>
+                    <p>
+                      Dolorem atque aut. Omnis doloremque blanditiis quia eum porro quis ut velit tempore. Cumque sed quia ut maxime. Est ad aut cum. Ut exercitationem non in fugiat.
+                    </p>
+                  </div>
+                </div>
+
+              </div><!-- End comment #4 -->
+
+              <!-- <div class="reply-form">
+                <h4>Leave a Reply</h4>
+                <p>Your email address will not be published. Required fields are marked * </p>
+                <form action="">
+                  <div class="row">
+                    <div class="col-md-6 form-group">
+                      <input name="name" type="text" class="form-control" placeholder="Your Name*">
+                    </div>
+                    <div class="col-md-6 form-group">
+                      <input name="email" type="text" class="form-control" placeholder="Your Email*">
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col form-group">
+                      <input name="website" type="text" class="form-control" placeholder="Your Website">
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col form-group">
+                      <textarea name="comment" class="form-control" placeholder="Your Comment*"></textarea>
+                    </div>
+                  </div>
+                  <button type="submit" class="btn btn-primary">Post Comment</button>
+
+                </form>
+
+              </div> -->
+
+            </div><!-- End blog comments -->
+
+          </div><!-- End blog entries list -->
+
+          <div class="col-lg-4">
+
+            <div class="sidebar">
+
+              <h3 class="sidebar-title">Search</h3>
+              <div class="sidebar-item search-form">
+                <form action="">
+                  <input type="text">
+                  <button type="submit"><i class="bi bi-search"></i></button>
+                </form>
+              </div><!-- End sidebar search formn-->
+
+              <h3 class="sidebar-title">Categories</h3>
+              <div class="sidebar-item categories">
+                <ul>
+                  <li><a href="#">Blog <span>(25)</span></a></li>
+                  <li><a href="#">Deep Learning <span>(12)</span></a></li>
+                  <li><a href="#">Python <span>(5)</span></a></li>
+                  <li><a href="#">Pytorch <span>(22)</span></a></li>
+                  <li><a href="#">Training <span>(8)</span></a></li>
+                  <!-- <li><a href="#">Educaion <span>(14)</span></a></li> -->
+                </ul>
+              </div><!-- End sidebar categories-->
+
+              <h3 class="sidebar-title">Recent Posts</h3>
+              <div class="sidebar-item recent-posts">
+                <div class="post-item clearfix">
+                  <img src="assets/img/blog/blog-recent-1.jpg" alt="">
+                  <h4><a href="blog-single.html">Different ways to load custom dataset in TensorFlow 2 for classification</a></h4>
+                  <time datetime="2021-08-10">August 10, 2021</time>
+                </div>
+
+                <div class="post-item clearfix">
+                  <img src="assets/img/blog/blog-recent-2.jpg" alt="">
+                  <h4><a href="blog-single.html">Working with custom datasets in PyTorch
+                  </a></h4>
+                  <time datetime="2021-07-12">July 12, 2021</time>
+                </div>
+
+                <div class="post-item clearfix">
+                  <img src="assets/img/blog/blog-recent-3.jpg" alt="">
+                  <h4><a href="blog-single.html">Ubuntu 20.04 resolution stuck at 1280x720, permanent fix
+                  </a></h4>
+                  <time datetime="2021-07-02">July 2, 2021</time>
+                </div>
+
+                <div class="post-item clearfix">
+                  <img src="assets/img/blog/blog-recent-4.jpg" alt="">
+                  <h4><a href="blog-single.html">Django3.2.5 with Apache2 and mod_wsgi
+                  </a></h4>
+                  <time datetime="2021-07-02">July 2, 2021</time>
+                </div>
+
+                <div class="post-item clearfix">
+                  <img src="assets/img/blog/blog-recent-5.jpg" alt="">
+                  <h4><a href="blog-single.html">Code editors and IDEs for Python
+                  </a></h4>
+                  <time datetime="2021-07-01">July 1, 2021</time>
+                </div>
+
+              </div><!-- End sidebar recent posts-->
+
+              <h3 class="sidebar-title">Tags</h3>
+              <div class="sidebar-item tags">
+                <ul>
+                  <li><a href="#">Dataloader</a></li>
+                  <li><a href="#">IT</a></li>
+                  <li><a href="#">Business</a></li>
+                  <li><a href="#">PyTorch</a></li>
+                  <li><a href="#">Design</a></li>
+                  <li><a href="#">IDE</a></li>
+                  <li><a href="#">Dataset</a></li>
+                  <li><a href="#">Deep Learning</a></li>
+                  <li><a href="#">Labeling</a></li>
+                  <li><a href="#">Tips</a></li>
+                  <li><a href="#">Django</a></li>
+                </ul>
+              </div><!-- End sidebar tags-->
+
+            </div><!-- End sidebar -->
+
+          </div><!-- End blog sidebar -->
+
+        </div>
+
+      </div>
+    </section><!-- End Blog Single Section -->
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer" class="footer">
+
+    <!-- <div class="footer-newsletter">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-12 text-center">
+            <h4>Our Newsletter</h4>
+            <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna</p>
+          </div>
+          <div class="col-lg-6">
+            <form action="" method="post">
+              <input type="email" name="email"><input type="submit" value="Subscribe">
+            </form>
+          </div>
+        </div>
+      </div>
+    </div> -->
+
+    <div class="footer-top">
+      <div class="container">
+        <div class="row gy-4">
+          <div class="col-lg-5 col-md-12 footer-info">
+            <a href="index.html" class="logo d-flex align-items-center">
+              <img src="assets/img/logo.png" alt="" text="en">
+              <img src="assets/img/logo1-3.jpg.png" alt="" text="cn">
+              <span></span>
+            </a>
+            <p text="en">Hangzhou Hyperchip Software Technology Co., Ltd. was founded in 2022 and headquartered in Hangzhou, commenced operations as a software company, focusing on research and development of AI</p>
+            <p text="cn">Hyperchip Technology 杭州海启软件科技有限公司成立于2022年，总部位于杭州。起源是主营软件服务业务。核心战略是成为一家国际人工智能的研发和咨询公司</p>
+            <div class="social-links mt-3">
+              <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
+              <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
+              <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
+              <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
+            </div>
+          </div>
+
+          <div class="col-lg-2 col-6 footer-links">
+            <h4 text="en">Follow Us on Wechat</h4>
+            <h4 text="cn">关注我们公众号</h4>
+            <img class="" id="" src="assets\img\amir-wechat.jpg" style="width:130px">
+            <!-- 
+            <ul>
+
+              <li><i class="bi bi-chevron-right"></i> <a href="#">Home</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a href="#">About us</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a href="#">Services</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a href="#">Terms of service</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a href="#">Privacy policy</a></li>
+            </ul> -->
+          </div>
+
+          <div class="col-lg-2 col-6 footer-links">
+            <h4 text="en">Our Services</h4>
+            <h4 text="cn">我们提供的服务</h4>
+            <ul text="en">
+              <li><i class="bi bi-chevron-right"></i> <a >Algorithm Research</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a >Pose Estimation</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a >Image Processing</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a >Website Design</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a >Service Application</a></li>
+            </ul>
+            <ul text="cn">
+              <li><i class="bi bi-chevron-right"></i> <a >算法研究</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a >姿势估计</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a >图像处理</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a >网站设计</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a >服务应用程序</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-3 col-md-12 footer-contact text-center text-md-start">
+            <h4 text="en">Contact Us</h4>
+            <h4 text="cn">联系我们</h4>
+            <p text="cn">
+              杭州国际人才创业创新园祥园路171号1幢10楼1012室<br><br>
+              <strong>电话:</strong> +86 158 6842 0294<br>
+              <strong>邮件:</strong> amir_sh@outlook.my<br>
+
+            </p>
+            <p text="en">
+              Hangzhou International Talents Entrepreneurship & Innovation Park, <br>
+              Room 1012, 10th Floor, Building 1, No. 171, Xiangyuan Road<br>
+              Hangzhou, China <br><br>
+              <strong>Phone:</strong> +86 158 6842 0294<br>
+              <strong>Email:</strong> amir_sh@outlook.my<br>
+
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="copyright" text="en">
+        &copy; Copyright <strong><span >Hyperchip Technology</span></strong>. All Rights Reserved
+      </div>
+      <div class="copyright" text="cn">
+        ©版权所有 <strong><span text="cn">Hyperchip Technology</span></strong> 保留所有权利
+      </div>
+
+      <div class="credits">
+        <!-- All the links in the footer should remain intact. -->
+        <!-- You can delete the links only if you purchased the pro version. -->
+        <!-- Licensing information: https://bootstrapmade.com/license/ -->
+        <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/Hyperchip Technology-bootstrap-startup-template/ -->
+        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+      </div>
+    </div>
+  </footer><!-- End Footer -->
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="assets/js/main.js"></script>
+  <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+  <script>function toggleLanguage(language) {
+    $('[text="cn"]').hide(); // hide all lang attributes on start.
+    $('[text="en"]').show(); // show just Korean text (you can change it)
+    $('#text-switch').change(function () { // put onchange event when user select option from select
+        var text = $(this).val(); // decide which language to display using switch case. The rest is obvious (i think)
+        
+        switch (text) {
+            case 'en':
+                $('[text]').hide();
+                $('[text="en"]').show();
+            break;
+            case 'cn':
+                $('[text]').hide();
+                $('[text="cn"]').show();
+            break;
+            default:
+                $('[text]').hide();
+                $('[text="cn"]').show();
+            }
+         
+    });
+  }
+    </script>
+    <script>
+      function toggleExtra(language){ //This function is for the "Read More" button, it toggles more text on the page. If the function carries "en" it means English, if it passes "cn" it means Chinese
+      var text = language;
+      // window.alert(language);
+
+       // decide which language to display using switch case. The rest is obvious (i think)
+        
+        switch (text) {
+            case 'English':
+                var x = document.getElementById("extra_en"); 
+                if (x.style.display === "none") {
+                    x.style.display = "block";
+                } else {
+                 x.style.display = "none";
+               }
+            break;
+            case 'Chinese':
+                var x = document.getElementById("extra_cn"); 
+                if (x.style.display === "none") {
+                    x.style.display = "block";
+                } else {
+                x.style.display = "none";
+                }
+            break;
+            default:     
+            }
+      }
+    </script>
+    <script>
+
+      var usrlang = navigator.language 
+      //Check to see what the preferred language of the browser is, then set accordingly 
+      if (usrlang === "zh" || usrlang === "zh-Hans"|| usrlang === "zh-CN") {
+          $('[text]').hide(); //init in chinese
+          $('[text="cn"]').show();
+      }else{
+          $('[text]').hide();
+          $('[text="en"]').show();
+      }
+
+      function toggleLanguage(language) {
+        let description = document.getElementById("description");
+        if (language === "Chinese") {
+             $('[text]').hide();
+             $('[text="cn"]').show();
+        }
+        else {
+             $('[text]').hide();
+             $('[text="en"]').show();
+        }
+      }
+    </script>
+
+</body>
+
+</html>

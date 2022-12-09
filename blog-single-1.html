@@ -1,0 +1,1045 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Different ways to load custom dataset in TensorFlow 2 for classification</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="assets/img/h-touch-icon.png" rel="icon">
+  <link href="assets/img/h-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="assets/css/style.css" rel="stylesheet">
+
+  <!-- =======================================================
+  * Template Name: FlexStart - v1.11.1
+  * Template URL: https://bootstrapmade.com/flexstart-bootstrap-startup-template/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="header fixed-top">
+    <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
+
+      <a href="index.html" class="logo d-flex align-items-center">
+        <img src="assets/img/logo1-3.jpg.png" alt="" text="cn">
+        <img src="assets/img/logo.png" alt="" text="en">
+        <span></span>
+      </a>
+
+      <nav id="navbar" class="navbar">
+        <ul>
+
+          
+          <!-- <p>
+              <span lang="ko">한국어 텍스트</span>
+              <span lang="en">Text in English</span>
+          </p> -->
+          <li class="container">
+            <!-- <h1 id="description">Show English Text</h1> -->
+             <div class="dropdown" text="en">
+              <button class="btn btn-default dropdown-toggle"onclick="toggleLanguage('Chinese')" type="button" data-toggle="dropdown"><img src="assets/img/en-flag.png" alt="" style="margin-right: 15px;width:20px">Language
+              <span class="caret"></span></button>
+              <ul class="dropdown-menu">
+                <li onclick="toggleLanguage('English')"><a href="#">English</a></li>
+                <li onclick="toggleLanguage('Chinese')"><a href="#">中文</a></li>
+              </ul>
+            </div>
+            <div class="dropdown" text="cn">
+              <button class="btn btn-default dropdown-toggle"onclick="toggleLanguage('English')" type="button" data-toggle="dropdown"><img src="assets/img/cn-flag.png" alt="" style="margin-right: 15px;width:20px">语言
+              <span class="caret"></span></button>
+              <ul class="dropdown-menu ">
+                <li onclick="toggleLanguage('English')"><a href="#">English</a></li>
+                <li onclick="toggleLanguage('Chinese')"><a href="#">中文</a></li>
+              </ul>
+            </div>
+          </li>
+          <li><a class="nav-link scrollto " href="index.html" text="en">Home</a></li>
+          <li><a class="nav-link scrollto " href="index.html" text="cn">首页</a></li>
+          <li><a class="nav-link scrollto" href="index.html" text="en">About</a></li>
+          <li><a class="nav-link scrollto" href="index.html" text="cn">关于我们</a></li>
+          <li><a class="nav-link scrollto active" text="en" href="#blog">Blog</a></li>
+          <li><a class="nav-link scrollto active" text="cn" href="#blog">新闻</a></li>
+          <!-- <li><a class="nav-link scrollto" href="#portfolio">Portfolio</a></li> -->
+          <li><a class="nav-link scrollto" href="index.html" text="en">Team</a></li>
+          <li><a class="nav-link scrollto" href="index.html" text="cn">团队</a></li>
+          <!-- <li><a href="blog.html">Blog</a></li> -->
+          <!-- <li class="dropdown"><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down"></i></a> -->
+            <!-- <ul>
+              <li><a href="#">Drop Down 1</a></li>
+              <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-right"></i></a>
+                <ul>
+                  <li><a href="#">Deep Drop Down 1</a></li>
+                  <li><a href="#">Deep Drop Down 2</a></li>
+                  <li><a href="#">Deep Drop Down 3</a></li>
+                  <li><a href="#">Deep Drop Down 4</a></li>
+                  <li><a href="#">Deep Drop Down 5</a></li>
+                </ul>
+              </li>
+              <li><a href="#">Drop Down 2</a></li>
+              <li><a href="#">Drop Down 3</a></li>
+              <li><a href="#">Drop Down 4</a></li>
+            </ul>
+          </li> -->
+          <!-- <li><a class="nav-link scrollto" href="#contact">Contact</a></li> -->
+          <li><a class="getstarted scrollto" href="#contact" text="en">Contact Us</a></li>
+          <li><a class="getstarted scrollto" href="#contact" text="cn">联系我们</a></li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+
+    </div>
+  </header><!-- End Header -->
+
+  <main id="main">
+
+    <!-- ======= Breadcrumbs ======= -->
+    <section class="breadcrumbs">
+      <div class="container">
+
+        <ol>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li>Different ways to load custom dataset in TensorFlow 2 for classification</li>
+        </ol>
+        <h2>Different ways to load custom dataset in TensorFlow 2 for classification</h2>
+
+      </div>
+    </section><!-- End Breadcrumbs -->
+
+    <!-- ======= Blog Single Section ======= -->
+    <section id="blog" class="blog">
+      <div class="container" data-aos="fade-up">
+
+        <div class="row">
+
+          <div class="col-lg-8 entries">
+
+            <article class="entry entry-single">
+
+              <div class="entry-img">
+                <img src="assets/img/blog/blog-1.jpg" alt="" class="img-fluid">
+              </div>
+
+              <h2 class="entry-title">
+                <a href="blog-single.html">Different ways to load custom dataset in TensorFlow 2 for classification</a>
+              </h2>
+
+              <div class="entry-meta">
+                <ul>
+                  <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a href="blog-single.html">Snawar Hussain</a></li>
+                  <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a href="blog-single.html"><time datetime="2020-01-01">August 10, 2021</time></a></li>
+                  <li class="d-flex align-items-center"><i class="bi bi-chat-dots"></i> <a href="blog-single.html">8 Comments</a></li>
+                </ul>
+              </div>
+
+              <div class="entry-content">
+                <section class="page__content e-content" itemprop="text">
+        
+                  <aside class="sidebar__right ">
+                    <nav class="toc">
+                      <header><h4 class="nav__title"><i class="fas fa-cog"></i> Contents of this post</h4></header>
+                      <ul class="toc__menu"><li><a href="#modelfit--method">Model.fit()  method</a></li><li><a href="#using-numpy-and-cv2-to-load-classification-data">Using Numpy and cv2 to load classification data</a><ul><li><a href="#creating-new-directories-for-the-dataset">Creating new directories for the dataset</a></li><li><a href="#splitting-and-randomly-sampling-the-data-into-test-and-train-sets">splitting and randomly sampling the data into test and train sets</a></li></ul></li><li><a href="#loading-data-in-tensorflow">Loading data in TensorFlow</a></li><li><a href="#cv2-and-numpy-to-load-data-in-tensorflow">Cv2 and NumPy to load data in TensorFlow</a><ul><li><a href="#creating-a-simple-cnn-for-classification-task-to-train-the-prepared-data">Creating a simple CNN for classification task to train the prepared data</a></li></ul></li><li><a href="#compiling-and-traing-the-model-for-20-epochs">Compiling and traing the model for 20 epochs</a></li><li><a href="#using-tensorflows-built-in-class-imagedatagenerator-and-flow_from_directory-class-method--to-load-data">Using TensorFlow’s built-in class ImageDataGenerator and flow_from_directory() class method  to load data</a></li></ul>
+        
+                    </nav>
+                  </aside>
+                
+                <hr>
+        <p>With the release of TensorFlow 2 and Keras being the default frontend for it. there is mass confusion on which tutorial to follow to work with custom datasets in TensorFlow 2 since Keras provides their documentation while TensorFlow official website has its own guide to follow and to be honest, none of them is user friendly and just adds to the confusion, particularly, if you are switching from another framework like PyTorch or just have been out of touch with TensorFlow for a long time.</p>
+        
+        <p>There is no unified way of creating a custom dataset for training in TensorFlow, rather it depends on the type of dataset you are working with. TensorFlow is quite flexible in this regard and you can feed data in a number of ways to the model for training and evaluation.</p>
+        
+        <h1 id="modelfit--method">Model.fit()  method<a class="header-link" href="#modelfit--method" title="Permalink"><span class="sr-only" style="display:none">Permalink</span><i class="fas fa-link"></i></a></h1>
+        <p>first we need to understand what kind of data can be fed to the <code class="language-plaintext highlighter-rouge">tf.keras.Model.fit()</code></p>
+        
+        <p>According to the official documentation, the fit() method can work with several data types.</p>
+        
+        <p><code class="language-plaintext highlighter-rouge">fit()</code> method accepts inputs <code class="language-plaintext highlighter-rouge">x</code> and targets <code class="language-plaintext highlighter-rouge">y</code>. input <code class="language-plaintext highlighter-rouge">x</code> could be:</p>
+        <ul>
+          <li>A Numpy array (or array-like), or a list of arrays (in case the model has multiple inputs).</li>
+          <li>A TensorFlow <code class="language-plaintext highlighter-rouge">tensor</code>, or a list of tensors (in case the model has multiple inputs).</li>
+          <li>A dict mapping input names to the corresponding array/tensors, if the model has named inputs.</li>
+          <li>A <code class="language-plaintext highlighter-rouge">tf.data dataset</code>. Should return a tuple of either (inputs, targets) or (inputs, targets, sample_weights).</li>
+          <li>A generator or <code class="language-plaintext highlighter-rouge">keras.utils.Sequence</code> returning <code class="language-plaintext highlighter-rouge">(inputs, targets)</code> or <code class="language-plaintext highlighter-rouge">(inputs, targets, sample_weights)</code>.</li>
+        </ul>
+        
+        <p>and targets <code class="language-plaintext highlighter-rouge">y</code> :</p>
+        
+        <ul>
+          <li>
+            <p>Like the input data <code class="language-plaintext highlighter-rouge">x</code>, it could be either <code class="language-plaintext highlighter-rouge">Numpy array(s)</code> or <code class="language-plaintext highlighter-rouge">TensorFlow tensor(s)</code>. <strong>It should be consistent with <code class="language-plaintext highlighter-rouge">x</code></strong> (you cannot have Numpy inputs and tensor targets, or inversely).</p>
+          </li>
+          <li>
+            <p>If <code class="language-plaintext highlighter-rouge">x</code> is a dataset, generator, or <code class="language-plaintext highlighter-rouge">keras.utils.Sequence</code> instance, <code class="language-plaintext highlighter-rouge">y</code> should not be specified (since targets will be obtained from <code class="language-plaintext highlighter-rouge">x</code>)</p>
+          </li>
+        </ul>
+        
+        <h1 id="using-numpy-and-cv2-to-load-classification-data">Using Numpy and cv2 to load classification data<a class="header-link" href="#using-numpy-and-cv2-to-load-classification-data" title="Permalink"><span class="sr-only" style="display:none">Permalink</span><i class="fas fa-link"></i></a></h1>
+        
+        <hr>
+        
+        <p>In this example, we will load image classification data for both training and validation using NumPy and cv2. you need to get comfortable using python operations like os.listdir, enumerate to loop through directories and search for files and load them iteratively and save them in an array or list.
+        for a binary classification task,  the image dataset should be structured in the following way:</p>
+        
+        <div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">/</span>
+          <span class="nx">training</span><span class="o">/</span>
+                  <span class="o">-</span><span class="nx">Class_A</span><span class="o">/</span>
+                  <span class="o">-</span><span class="nx">Class_B</span><span class="o">/</span>
+        
+          <span class="nx">testing</span><span class="o">/</span>
+                <span class="o">-</span><span class="nx">Class_A</span><span class="o">/</span>
+                <span class="o">-</span><span class="nx">Class_B</span><span class="o">/</span>
+        
+        </code></pre></div></div>
+        <p>if the image data directory is not in this structure we can make new directories and randomly split the data into training and testing sets using code this comes in handy especially if you are dealing with a large dataset.
+        let’s go ahead and write code for this step.</p>
+        
+        <h2 id="creating-new-directories-for-the-dataset">Creating new directories for the dataset<a class="header-link" href="#creating-new-directories-for-the-dataset" title="Permalink"><span class="sr-only" style="display:none">Permalink</span><i class="fas fa-link"></i></a></h2>
+        <p>in this example, I am using an image dataset of healthy and glaucoma infested fundus images. source directory has two folders namely <code class="language-plaintext highlighter-rouge">healthy</code> and <code class="language-plaintext highlighter-rouge">glaucoma</code> that have images. we need to create training and testing directories for both classes of  <code class="language-plaintext highlighter-rouge">healthy</code> and <code class="language-plaintext highlighter-rouge">glaucoma</code> images. and randomly split a portion of data between the training and testing set. for that first we need to make new directories for our dataset to reside for that we will execute the following code:</p>
+        
+        <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">os</span>
+        
+        <span class="n">to_create</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s">'root'</span><span class="p">:</span> <span class="s">'/content/dataset'</span><span class="p">,</span>
+            <span class="s">'train_dir'</span><span class="p">:</span> <span class="s">'/content/dataset/training'</span><span class="p">,</span>
+            <span class="s">'test_dir'</span><span class="p">:</span> <span class="s">'/content/dataset/testing'</span><span class="p">,</span>
+            <span class="s">'healthy_train_dir'</span><span class="p">:</span> <span class="s">'/content/dataset/training/healthy'</span><span class="p">,</span>
+            <span class="s">'glaucoma_train_dir'</span><span class="p">:</span> <span class="s">'/content/dataset/training/glaucoma'</span><span class="p">,</span>
+            <span class="s">'healthy_test_dir'</span><span class="p">:</span> <span class="s">'/content/dataset/testing/healthy'</span><span class="p">,</span>
+            <span class="s">'glaucoma_test_dir'</span><span class="p">:</span> <span class="s">'/content/dataset/testing/glaucoma'</span>
+        <span class="p">}</span>
+        
+        <span class="k">for</span> <span class="n">directory</span> <span class="ow">in</span> <span class="n">to_create</span><span class="p">.</span><span class="n">values</span><span class="p">():</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">os</span><span class="p">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">directory</span><span class="p">)</span>
+                <span class="k">print</span><span class="p">(</span><span class="n">directory</span><span class="p">,</span> <span class="s">'created'</span><span class="p">)</span>         <span class="c1">#iterating through dictionary to make new dirs
+        </span>    <span class="k">except</span><span class="p">:</span>
+                <span class="k">print</span><span class="p">(</span><span class="n">directory</span><span class="p">,</span> <span class="s">'failed'</span><span class="p">)</span>
+        </code></pre></div></div>
+        
+        <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/content/dataset created
+        /content/dataset/training created
+        /content/dataset/testing created
+        /content/dataset/training/healthy created
+        /content/dataset/training/glaucoma created
+        /content/dataset/testing/healthy created
+        /content/dataset/testing/glaucoma created
+        </code></pre></div></div>
+        
+        <h2 id="splitting-and-randomly-sampling-the-data-into-test-and-train-sets">splitting and randomly sampling the data into test and train sets<a class="header-link" href="#splitting-and-randomly-sampling-the-data-into-test-and-train-sets" title="Permalink"><span class="sr-only" style="display:none">Permalink</span><i class="fas fa-link"></i></a></h2>
+        <p>after creating directories, the next step is to split the data into portions for training and testing. from the whole data, we will randomly sample a portion for the train and the rest for the test.</p>
+        
+        <p>for that, we will iterate through the files in each class namely <code class="language-plaintext highlighter-rouge">healthy</code> and <code class="language-plaintext highlighter-rouge">glaucoma</code> one by one and list all the file names and paths. after that, we will first shuffle and then slice them into portions for training and testing and copy these files  to the training and testing directories we created in previous step</p>
+        
+        <p>the function <code class="language-plaintext highlighter-rouge">split_data()</code> take a source path to files, and after making a list of all the files, shuffles them and copy a portion defined by <code class="language-plaintext highlighter-rouge">split_size</code> in  <code class="language-plaintext highlighter-rouge">Train_path</code> and <code class="language-plaintext highlighter-rouge">Test_path</code></p>
+        
+        <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">shutil</span> <span class="kn">import</span> <span class="n">copyfile</span>
+        <span class="kn">import</span> <span class="nn">random</span>
+        
+        <span class="k">def</span> <span class="nf">split_data</span><span class="p">(</span><span class="n">SOURCE</span><span class="p">,</span><span class="n">Train_path</span><span class="p">,</span> <span class="n">Test_path</span><span class="p">,</span> <span class="n">split_size</span><span class="p">):</span>
+          <span class="n">all_files</span> <span class="o">=</span><span class="p">[]</span>
+          <span class="k">for</span> <span class="n">image</span> <span class="ow">in</span> <span class="n">os</span><span class="p">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">SOURCE</span><span class="p">):</span>            <span class="c1">#os.listdir lists all the files/folders in a directory 
+        </span>    <span class="n">image_path</span> <span class="o">=</span> <span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="n">join</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">SOURCE</span><span class="p">)</span>      <span class="c1"># joining the root dir with the image name to get the path to the image
+        </span>    <span class="k">if</span> <span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="n">getsize</span><span class="p">(</span><span class="n">image_path</span><span class="p">):</span>           <span class="c1">#os.path.getsize returns the size of a file in bytes, here it is being used to check if file has size greater than 0 or not 
+        </span>      <span class="n">all_files</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">image</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+              <span class="k">print</span><span class="p">(</span><span class="s">'{} has zero size, skipping'</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">image</span><span class="p">))</span>
+        
+          <span class="n">total_files</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">all_files</span><span class="p">)</span>
+          <span class="n">split_point</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">total_files</span> <span class="o">*</span> <span class="n">split_size</span><span class="p">)</span>                         
+          <span class="n">shuffled</span> <span class="o">=</span> <span class="n">random</span><span class="p">.</span><span class="n">sample</span><span class="p">(</span><span class="n">all_files</span><span class="p">,</span> <span class="n">total_files</span><span class="p">)</span>    <span class="c1">#sample n number of files randomly from the given list of files 
+        </span>  <span class="n">train</span> <span class="o">=</span> <span class="n">shuffled</span><span class="p">[:</span><span class="n">split_point</span><span class="p">]</span>                  <span class="c1">#slicing from start to split point 
+        </span>  <span class="n">test</span> <span class="o">=</span> <span class="n">shuffled</span><span class="p">[</span><span class="n">split_point</span><span class="p">:]</span>
+          <span class="k">for</span> <span class="n">image</span> <span class="ow">in</span> <span class="n">train</span><span class="p">:</span>                             <span class="c1">#copy files from one path to another 
+        </span>    <span class="n">copyfile</span><span class="p">(</span><span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="n">join</span><span class="p">(</span><span class="n">SOURCE</span><span class="p">,</span> <span class="n">image</span> <span class="p">),</span> <span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="n">join</span><span class="p">(</span><span class="n">Train_path</span><span class="p">,</span> <span class="n">image</span><span class="p">))</span>
+        
+          <span class="k">for</span> <span class="n">image</span> <span class="ow">in</span> <span class="n">test</span><span class="p">:</span>
+            <span class="n">copyfile</span><span class="p">(</span><span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="n">join</span><span class="p">(</span><span class="n">SOURCE</span><span class="p">,</span> <span class="n">image</span> <span class="p">),</span> <span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="n">join</span><span class="p">(</span><span class="n">Test_path</span><span class="p">,</span> <span class="n">image</span><span class="p">))</span>
+        
+        <span class="n">split_data</span><span class="p">(</span><span class="s">'/content/data/glaucoma'</span><span class="p">,</span><span class="n">to_create</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="s">'glaucoma_train_dir'</span><span class="p">),</span> <span class="n">to_create</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="s">'glaucoma_test_dir'</span><span class="p">),</span> <span class="mf">0.8</span><span class="p">)</span>
+        <span class="n">split_data</span><span class="p">(</span><span class="s">'/content/data/healthy'</span><span class="p">,</span><span class="n">to_create</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="s">'healthy_train_dir'</span><span class="p">),</span> <span class="n">to_create</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="s">'healthy_test_dir'</span><span class="p">),</span> <span class="mf">0.8</span><span class="p">)</span>
+        </code></pre></div></div>
+        
+        <h1 id="loading-data-in-tensorflow">Loading data in TensorFlow<a class="header-link" href="#loading-data-in-tensorflow" title="Permalink"><span class="sr-only" style="display:none">Permalink</span><i class="fas fa-link"></i></a></h1>
+        <p>once we have our data in desired structure and randomly split. now comes the important part where we need to load it in Tensorflow.
+        from here we can do it in two ways without <code class="language-plaintext highlighter-rouge">numpy</code> and probably <code class="language-plaintext highlighter-rouge">cv2</code> that are pretty straightforward and intuitive.</p>
+        
+        <ol>
+          <li>iterate through train and test dir and load the data into NumPy array and feed the model these array as <code class="language-plaintext highlighter-rouge">x</code> inputs and <code class="language-plaintext highlighter-rouge">y</code> targets</li>
+          <li>after getting numpy arrays from 1. use them to create a tensor dataset with <code class="language-plaintext highlighter-rouge">from_tensor_slices()</code> method of TensorFlow. with this approach we can create batches of our data that are randomly shuffled on each epoch for the training.</li>
+          <li>and the 3rd and the easiest way, we can load tensors of data directory using the <code class="language-plaintext highlighter-rouge">flow_from_directory()</code> method. that automatically detects the classes of data for classification and generates batches.</li>
+        </ol>
+        
+        <p>here I will demonstrate the number 2 and 3 method for loading data.</p>
+        
+        <h1 id="cv2-and-numpy-to-load-data-in-tensorflow">Cv2 and NumPy to load data in TensorFlow<a class="header-link" href="#cv2-and-numpy-to-load-data-in-tensorflow" title="Permalink"><span class="sr-only" style="display:none">Permalink</span><i class="fas fa-link"></i></a></h1>
+        <p>for this method we will loop through the directories to list all images and their paths just like we did before while splitting the data.
+        and then create NumPy array from images and their labels.</p>
+        
+        <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">cv2</span>
+        <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
+        <span class="k">def</span> <span class="nf">data_load</span><span class="p">(</span><span class="n">root_path</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="p">(</span><span class="mi">256</span><span class="p">,</span><span class="mi">256</span><span class="p">)):</span>
+          <span class="n">categories</span> <span class="o">=</span>  <span class="n">os</span><span class="p">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">root_path</span><span class="p">)</span> 
+          <span class="n">x</span> <span class="o">=</span> <span class="p">[]</span>
+          <span class="n">y</span> <span class="o">=</span><span class="p">[]</span>
+          <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">cat</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">categories</span><span class="p">):</span>
+            <span class="n">img_path</span> <span class="o">=</span> <span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="n">join</span><span class="p">(</span><span class="n">root_path</span><span class="p">,</span> <span class="n">cat</span><span class="p">)</span>
+            <span class="n">images</span> <span class="o">=</span> <span class="n">os</span><span class="p">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">img_path</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">image</span> <span class="ow">in</span> <span class="n">images</span><span class="p">:</span>
+              <span class="n">img</span> <span class="o">=</span> <span class="n">cv2</span><span class="p">.</span><span class="n">imread</span><span class="p">(</span><span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="n">join</span><span class="p">(</span><span class="n">img_path</span><span class="p">,</span> <span class="n">image</span><span class="p">),</span> <span class="mi">0</span><span class="p">)</span>
+              <span class="n">img</span> <span class="o">=</span> <span class="n">cv2</span><span class="p">.</span><span class="n">resize</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">scale</span><span class="p">)</span>
+              <span class="n">x</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>
+              <span class="n">y</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+          <span class="k">return</span> <span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+        <span class="n">x_train</span><span class="p">,</span> <span class="n">y_train</span> <span class="o">=</span> <span class="n">data_load</span><span class="p">(</span><span class="n">to_create</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="s">'train_dir'</span><span class="p">))</span>
+        <span class="n">x_test</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">data_load</span><span class="p">(</span><span class="n">to_create</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="s">'test_dir'</span><span class="p">))</span>
+        </code></pre></div></div>
+        
+        <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">print</span> <span class="p">(</span> <span class="s">' trainset has length of {}'</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x_train</span><span class="p">)))</span>
+        <span class="k">print</span> <span class="p">(</span> <span class="s">' testset has length of {}'</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x_test</span><span class="p">)))</span>
+        </code></pre></div></div>
+        
+        <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> trainset has length of 24
+         testset has length of 6
+        </code></pre></div></div>
+        
+        <p>each item in the <code class="language-plaintext highlighter-rouge">x</code>_train ndarray is an array of image while <code class="language-plaintext highlighter-rouge">y</code> is array of labels where each label is either 0 or 1 for glaucoma and healthy class respectively.</p>
+        
+        <p>the shape of <code class="language-plaintext highlighter-rouge">x</code> is <code class="language-plaintext highlighter-rouge">(24, 256, 256)</code> which indicates that we have 24 images of size (256, 256) each.
+        to feed this input data to our TensorFlow CNN, we need to add an extra dimension for channels, since we are using gray images, we just need to add another dimension of size 1 to the data. we can do that using numpy’s <code class="language-plaintext highlighter-rouge">expand_dims()</code> function.</p>
+        
+        <p class="notice--info"><strong>NOTE:</strong> By default, TensorFlow uses channel last data format, which means the data should be in the format of (B, H, W, C) with batch(B), height(H), width(W) and finally channels(C) at the last position for the input tensor so we will add the channel dimension at the last position with axis=3</p>
+        
+        <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">x_train</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">expand_dims</span><span class="p">(</span><span class="n">x_train</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+        <span class="n">x_test</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">expand_dims</span><span class="p">(</span><span class="n">x_test</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+        </code></pre></div></div>
+        
+        <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">x_train</span><span class="p">.</span><span class="n">shape</span>
+        </code></pre></div></div>
+        
+        <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(24, 256, 256, 1)
+        </code></pre></div></div>
+        
+        <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">y_train</span><span class="p">.</span><span class="n">shape</span>
+        </code></pre></div></div>
+        
+        <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(24,)
+        </code></pre></div></div>
+        
+        <p>we can use the  <code class="language-plaintext highlighter-rouge">x</code> and <code class="language-plaintext highlighter-rouge">y</code> to create a dataset using the tensorflow method <code class="language-plaintext highlighter-rouge">from_tensor_slices()</code>. it takes the <code class="language-plaintext highlighter-rouge">x</code> inputs and <code class="language-plaintext highlighter-rouge">y</code> targets numpy arrays and return tuples of tensors that can be shuffled and batched with biult-in methods.</p>
+        
+        <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="n">tf</span>
+        <span class="n">train_data</span> <span class="o">=</span> <span class="n">tf</span><span class="p">.</span><span class="n">data</span><span class="p">.</span><span class="n">Dataset</span><span class="p">.</span><span class="n">from_tensor_slices</span><span class="p">((</span><span class="n">x_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">))</span>
+        <span class="n">test_data</span> <span class="o">=</span> <span class="n">tf</span><span class="p">.</span><span class="n">data</span><span class="p">.</span><span class="n">Dataset</span><span class="p">.</span><span class="n">from_tensor_slices</span><span class="p">((</span><span class="n">x_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">))</span>
+        </code></pre></div></div>
+        
+        <p>We can call methods like <code class="language-plaintext highlighter-rouge">shuffle()</code> and <code class="language-plaintext highlighter-rouge">batch()</code> on the TensorFlow dataset.</p>
+        
+        <p>with <code class="language-plaintext highlighter-rouge">shuffle()</code> method called, the dataset fills a buffer with <code class="language-plaintext highlighter-rouge">buffer_size</code> elements, then randomly samples elements from this buffer, replacing the selected elements with new elements. For perfect shuffling, a buffer size greater than or equal to the full size of the dataset is required.</p>
+        
+        <p>while <code class="language-plaintext highlighter-rouge">batch()</code> method defines the batches to generate from the dataset according to the batch size given.</p>
+        
+        <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">train_data</span> <span class="o">=</span> <span class="n">train_data</span><span class="p">.</span><span class="n">shuffle</span><span class="p">(</span><span class="mi">24</span><span class="p">).</span><span class="n">batch</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
+        <span class="n">test_data</span> <span class="o">=</span> <span class="n">test_data</span><span class="p">.</span><span class="n">shuffle</span><span class="p">(</span><span class="mi">24</span><span class="p">).</span><span class="n">batch</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+        </code></pre></div></div>
+        
+        <h2 id="creating-a-simple-cnn-for-classification-task-to-train-the-prepared-data">Creating a simple CNN for classification task to train the prepared data<a class="header-link" href="#creating-a-simple-cnn-for-classification-task-to-train-the-prepared-data" title="Permalink"><span class="sr-only" style="display:none">Permalink</span><i class="fas fa-link"></i></a></h2>
+        <p>this is just for demonstration purposes to give an idea of how we can use the prepared data to train a model.</p>
+        
+        <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+        <span class="n">model</span> <span class="o">=</span>  <span class="n">tf</span><span class="p">.</span><span class="n">keras</span><span class="p">.</span><span class="n">Sequential</span><span class="p">([</span>
+        
+                    <span class="n">tf</span><span class="p">.</span><span class="n">keras</span><span class="p">.</span><span class="n">layers</span><span class="p">.</span><span class="n">Conv2D</span><span class="p">(</span><span class="mi">64</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">strides</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+                                           <span class="n">activation</span><span class="o">=</span><span class="s">'relu'</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="s">'same'</span><span class="p">,</span>
+                                           <span class="n">input_shape</span><span class="o">=</span><span class="p">[</span><span class="mi">256</span><span class="p">,</span> <span class="mi">256</span><span class="p">,</span> <span class="mi">1</span><span class="p">]),</span>
+        
+                    <span class="n">tf</span><span class="p">.</span><span class="n">keras</span><span class="p">.</span><span class="n">layers</span><span class="p">.</span><span class="n">MaxPooling2D</span><span class="p">(</span><span class="n">pool_size</span><span class="o">=</span><span class="mi">2</span><span class="p">),</span>
+        
+                    <span class="n">tf</span><span class="p">.</span><span class="n">keras</span><span class="p">.</span><span class="n">layers</span><span class="p">.</span><span class="n">Conv2D</span><span class="p">(</span><span class="mi">128</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">strides</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+                                           <span class="n">activation</span><span class="o">=</span><span class="s">'relu'</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="s">'same'</span><span class="p">,</span>
+                                           <span class="p">),</span>
+                    <span class="n">tf</span><span class="p">.</span><span class="n">keras</span><span class="p">.</span><span class="n">layers</span><span class="p">.</span><span class="n">MaxPooling2D</span><span class="p">(</span><span class="n">pool_size</span><span class="o">=</span><span class="mi">2</span><span class="p">),</span>
+        
+                    <span class="n">tf</span><span class="p">.</span><span class="n">keras</span><span class="p">.</span><span class="n">layers</span><span class="p">.</span><span class="n">Flatten</span><span class="p">(),</span>
+                    <span class="n">tf</span><span class="p">.</span><span class="n">keras</span><span class="p">.</span><span class="n">layers</span><span class="p">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">64</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s">'relu'</span><span class="p">),</span>
+                    <span class="n">tf</span><span class="p">.</span><span class="n">keras</span><span class="p">.</span><span class="n">layers</span><span class="p">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s">'sigmoid'</span><span class="p">)])</span>
+        </code></pre></div></div>
+        
+        <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">model</span><span class="p">.</span><span class="n">summary</span><span class="p">()</span>
+        </code></pre></div></div>
+        
+        <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Model: "sequential"
+        _________________________________________________________________
+        Layer (type)                 Output Shape              Param #   
+        =================================================================
+        conv2d (Conv2D)              (None, 256, 256, 64)      640       
+        _________________________________________________________________
+        max_pooling2d (MaxPooling2D) (None, 128, 128, 64)      0         
+        _________________________________________________________________
+        conv2d_1 (Conv2D)            (None, 128, 128, 128)     73856     
+        _________________________________________________________________
+        max_pooling2d_1 (MaxPooling2 (None, 64, 64, 128)       0         
+        _________________________________________________________________
+        flatten (Flatten)            (None, 524288)            0         
+        _________________________________________________________________
+        dense (Dense)                (None, 64)                33554496  
+        _________________________________________________________________
+        dense_1 (Dense)              (None, 1)                 65        
+        =================================================================
+        Total params: 33,629,057
+        Trainable params: 33,629,057
+        Non-trainable params: 0
+        _________________________________________________________________
+        </code></pre></div></div>
+        
+        <h1 id="compiling-and-traing-the-model-for-20-epochs">Compiling and traing the model for 20 epochs<a class="header-link" href="#compiling-and-traing-the-model-for-20-epochs" title="Permalink"><span class="sr-only" style="display:none">Permalink</span><i class="fas fa-link"></i></a></h1>
+        <p>on each epoch the dataset will return a batch of 6 shuffled images along with their labels. for a total of 4 step. 
+        <code class="language-plaintext highlighter-rouge">4*6 = 24(total images in train_set)</code></p>
+        
+        <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">model</span><span class="p">.</span><span class="nb">compile</span><span class="p">(</span><span class="n">loss</span><span class="o">=</span><span class="s">'binary_crossentropy'</span><span class="p">,</span> <span class="n">optimizer</span><span class="o">=</span><span class="n">tf</span><span class="p">.</span><span class="n">keras</span><span class="p">.</span><span class="n">optimizers</span><span class="p">.</span><span class="n">Adam</span><span class="p">(</span><span class="n">lr</span><span class="o">=</span><span class="mf">0.001</span><span class="p">),</span>
+                      <span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="s">'binary_accuracy'</span><span class="p">],</span> <span class="p">)</span>
+        <span class="n">history</span> <span class="o">=</span> <span class="n">model</span><span class="p">.</span><span class="n">fit</span><span class="p">(</span><span class="n">train_data</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+        </code></pre></div></div>
+        
+        <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Epoch 1/20
+        
+        
+        /usr/local/lib/python3.7/dist-packages/tensorflow/python/keras/optimizer_v2/optimizer_v2.py:375: UserWarning: The `lr` argument is deprecated, use `learning_rate` instead.
+          "The `lr` argument is deprecated, use `learning_rate` instead.")
+        
+        
+        4/4 [==============================] - 7s 1s/step - loss: 582.2830 - binary_accuracy: 0.5833
+        Epoch 2/20
+        4/4 [==============================] - 5s 1s/step - loss: 85.3040 - binary_accuracy: 0.3750
+        Epoch 3/20
+        4/4 [==============================] - 5s 1s/step - loss: 8.2543 - binary_accuracy: 0.5000
+        Epoch 4/20
+        4/4 [==============================] - 5s 1s/step - loss: 1.0707 - binary_accuracy: 0.4583
+        Epoch 5/20
+        4/4 [==============================] - 5s 1s/step - loss: 0.6798 - binary_accuracy: 0.5000
+        Epoch 6/20
+        4/4 [==============================] - 5s 1s/step - loss: 0.9097 - binary_accuracy: 0.5417
+        Epoch 7/20
+        4/4 [==============================] - 5s 1s/step - loss: 0.6698 - binary_accuracy: 0.5000
+        Epoch 8/20
+        4/4 [==============================] - 5s 1s/step - loss: 0.6643 - binary_accuracy: 0.5833
+        Epoch 9/20
+        4/4 [==============================] - 5s 1s/step - loss: 0.6501 - binary_accuracy: 0.7083
+        Epoch 10/20
+        4/4 [==============================] - 5s 1s/step - loss: 0.6487 - binary_accuracy: 0.6667
+        Epoch 11/20
+        4/4 [==============================] - 5s 1s/step - loss: 0.6339 - binary_accuracy: 0.7083
+        Epoch 12/20
+        4/4 [==============================] - 5s 1s/step - loss: 0.6202 - binary_accuracy: 0.6667
+        Epoch 13/20
+        4/4 [==============================] - 5s 1s/step - loss: 0.6093 - binary_accuracy: 0.7083
+        Epoch 14/20
+        4/4 [==============================] - 5s 1s/step - loss: 0.5785 - binary_accuracy: 0.6667
+        Epoch 15/20
+        4/4 [==============================] - 5s 1s/step - loss: 0.5627 - binary_accuracy: 0.7083
+        Epoch 16/20
+        4/4 [==============================] - 5s 1s/step - loss: 0.5541 - binary_accuracy: 0.6667
+        Epoch 17/20
+        4/4 [==============================] - 5s 1s/step - loss: 0.5215 - binary_accuracy: 0.7917
+        Epoch 18/20
+        4/4 [==============================] - 5s 1s/step - loss: 0.5031 - binary_accuracy: 0.7917
+        Epoch 19/20
+        4/4 [==============================] - 5s 1s/step - loss: 0.4845 - binary_accuracy: 0.7500
+        Epoch 20/20
+        4/4 [==============================] - 5s 1s/step - loss: 0.4575 - binary_accuracy: 0.7917
+        </code></pre></div></div>
+        
+        <p>80% train accuracy is not that bad. next tutorial i will show how to get a 100% test and train accuracy on this dataset</p>
+        
+        <h1 id="using-tensorflows-built-in-class-imagedatagenerator-and-flow_from_directory-class-method--to-load-data">Using TensorFlow’s built-in class <code class="language-plaintext highlighter-rouge">ImageDataGenerator</code> and <code class="language-plaintext highlighter-rouge">flow_from_directory()</code> class method  to load data<a class="header-link" href="#using-tensorflows-built-in-class-imagedatagenerator-and-flow_from_directory-class-method--to-load-data" title="Permalink"><span class="sr-only" style="display:none">Permalink</span><i class="fas fa-link"></i></a></h1>
+        <p>Although the numpy way of loading data is more intuitive and very <em>pythonic</em> however, it might be a little difficult for some poeple. for that, Tensorflow has  biult-in methods  like <code class="language-plaintext highlighter-rouge">flow_from_directory()</code> which can be used to load classification data.
+        we need to pass the root directory of the data set as an argument and tensorflow handles the rest. it recognizes each subdirectory in the root as a class and the files insides and inputs. for example if we pass a directory named <code class="language-plaintext highlighter-rouge">training</code> with two folders,  with  30 and  25 images respectively,  to this method then it will recgonize them as two classes <code class="language-plaintext highlighter-rouge">0</code> and <code class="language-plaintext highlighter-rouge">1</code> having 30 and 25 images. 
+        we can also set data shuffling to be true and define batch size, with arguments to this method and apply transforms like rotation, zoom, random_crop and random flips.
+        for more, go check out the official documentation for this <a href="https://www.tensorflow.org/api_docs/python/tf/keras/preprocessing/image/ImageDataGenerator#flow_from_directory">here</a></p>
+        
+        <p>below is an example of using this method to load data from a directory</p>
+        
+        <p>for the training dataset, first, we define the different transforms, operations that we want to apply to this dataset and pass it to the <code class="language-plaintext highlighter-rouge">ImageDataGenerator</code> class. then we call the method <code class="language-plaintext highlighter-rouge">flow_from_directory()</code> on the class constructor <code class="language-plaintext highlighter-rouge">train_datagen</code> and pass the train directory path along with other arguments like <code class="language-plaintext highlighter-rouge">color_mode</code> and <code class="language-plaintext highlighter-rouge">batch_size</code> the shuffle is <code class="language-plaintext highlighter-rouge">True</code> by default so I didn’t bother specifying it.</p>
+        
+        <p>as for the <code class="language-plaintext highlighter-rouge">test_data</code> we only apply rescale to the image and not the augmentations. because we need to test our model on the unchanged data.</p>
+        
+        <p class="notice--info">notice how TensorFlow recognizes two different classes and the images for each of them and generates labels in the backend without defining them manually. it certainly gives a lot of abstraction and gets the job done for us</p>
+        
+        <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">tensorflow.keras.preprocessing.image</span> <span class="kn">import</span> <span class="n">ImageDataGenerator</span>
+        <span class="n">kwargs</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
+            <span class="n">featurewise_center</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span>
+            <span class="n">featurewise_std_normalization</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span>
+            <span class="c1"># rotation_range=90,
+        </span>    <span class="n">rescale</span><span class="o">=</span><span class="mf">1.</span> <span class="o">/</span> <span class="mi">255</span><span class="p">,</span>
+            <span class="c1"># zca_whitening=True,
+        </span>    <span class="c1">#horizontal_flip=True,
+        </span>    <span class="c1">#vertical_flip=True,
+        </span>    <span class="c1"># preprocessing_function=preprocessing
+        </span><span class="p">)</span>
+        
+        <span class="n">train_datagen</span> <span class="o">=</span> <span class="n">ImageDataGenerator</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        
+        <span class="n">train_tfdata</span> <span class="o">=</span> <span class="n">train_datagen</span><span class="p">.</span><span class="n">flow_from_directory</span><span class="p">(</span><span class="n">directory</span><span class="o">=</span><span class="n">to_create</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="s">'train_dir'</span><span class="p">),</span>
+                                                                                <span class="n">seed</span><span class="o">=</span><span class="mi">24</span><span class="p">,</span>
+                                                                                <span class="n">color_mode</span><span class="o">=</span><span class="s">'grayscale'</span><span class="p">,</span>
+                                                                                <span class="n">batch_size</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span><span class="n">class_mode</span><span class="o">=</span><span class="s">'binary'</span>
+                                                                                <span class="p">)</span>
+        <span class="n">test_datagen</span> <span class="o">=</span> <span class="n">ImageDataGenerator</span><span class="p">(</span><span class="n">rescale</span><span class="o">=</span><span class="mf">1.</span> <span class="o">/</span> <span class="mi">255</span><span class="p">,</span>
+                                          <span class="p">)</span>
+        <span class="n">test_tfdata</span> <span class="o">=</span> <span class="n">test_datagen</span><span class="p">.</span><span class="n">flow_from_directory</span><span class="p">(</span><span class="n">directory</span><span class="o">=</span><span class="n">to_create</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="s">'test_dir'</span><span class="p">),</span>
+                                                                                <span class="n">seed</span><span class="o">=</span><span class="mi">24</span><span class="p">,</span>
+                                                                                <span class="n">color_mode</span><span class="o">=</span><span class="s">'grayscale'</span><span class="p">,</span>
+                                                                                <span class="n">batch_size</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span><span class="n">class_mode</span><span class="o">=</span><span class="s">'binary'</span>
+                                                                                <span class="p">)</span>
+        </code></pre></div></div>
+        
+        <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Found 24 images belonging to 2 classes.
+        Found 6 images belonging to 2 classes.
+        </code></pre></div></div>
+        
+        <p>Now we can use these datasets to train our already defined model. this time we will pass the train_tfdata for in order to train the model</p>
+        
+        <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+        <span class="n">history</span> <span class="o">=</span> <span class="n">model</span><span class="p">.</span><span class="n">fit</span><span class="p">(</span><span class="n">train_tfdata</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+        </code></pre></div></div>
+        
+        <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Epoch 1/20
+        4/4 [==============================] - 8s 2s/step - loss: 1.1575 - binary_accuracy: 0.2500
+        Epoch 2/20
+        4/4 [==============================] - 8s 2s/step - loss: 1.0284 - binary_accuracy: 0.1667
+        Epoch 3/20
+        4/4 [==============================] - 8s 2s/step - loss: 0.8951 - binary_accuracy: 0.0833
+        Epoch 4/20
+        4/4 [==============================] - 8s 2s/step - loss: 0.8095 - binary_accuracy: 0.2500
+        Epoch 5/20
+        4/4 [==============================] - 8s 2s/step - loss: 0.7385 - binary_accuracy: 0.4167
+        Epoch 6/20
+        4/4 [==============================] - 8s 2s/step - loss: 0.7180 - binary_accuracy: 0.3333
+        Epoch 7/20
+        4/4 [==============================] - 8s 2s/step - loss: 0.7209 - binary_accuracy: 0.4583
+        Epoch 8/20
+        4/4 [==============================] - 8s 2s/step - loss: 0.6970 - binary_accuracy: 0.5000
+        Epoch 9/20
+        4/4 [==============================] - 8s 2s/step - loss: 0.6807 - binary_accuracy: 0.5417
+        Epoch 10/20
+        4/4 [==============================] - 8s 2s/step - loss: 0.6745 - binary_accuracy: 0.5833
+        Epoch 11/20
+        4/4 [==============================] - 8s 2s/step - loss: 0.6620 - binary_accuracy: 0.6667
+        Epoch 12/20
+        4/4 [==============================] - 8s 2s/step - loss: 0.6562 - binary_accuracy: 0.6667
+        Epoch 13/20
+        4/4 [==============================] - 8s 2s/step - loss: 0.6521 - binary_accuracy: 0.6250
+        Epoch 14/20
+        4/4 [==============================] - 8s 2s/step - loss: 0.6350 - binary_accuracy: 0.6667
+        Epoch 15/20
+        4/4 [==============================] - 8s 2s/step - loss: 0.6274 - binary_accuracy: 0.6667
+        Epoch 16/20
+        4/4 [==============================] - 8s 2s/step - loss: 0.6217 - binary_accuracy: 0.6667
+        Epoch 17/20
+        4/4 [==============================] - 8s 2s/step - loss: 0.6034 - binary_accuracy: 0.7083
+        Epoch 18/20
+        4/4 [==============================] - 8s 2s/step - loss: 0.6008 - binary_accuracy: 0.7083
+        Epoch 19/20
+        4/4 [==============================] - 8s 2s/step - loss: 0.5836 - binary_accuracy: 0.7500
+        Epoch 20/20
+        4/4 [==============================] - 8s 2s/step - loss: 0.5789 - binary_accuracy: 0.7083
+        </code></pre></div></div>
+        
+        <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">model</span><span class="p">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">test_tfdata</span><span class="p">)</span>
+        </code></pre></div></div>
+        
+        <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>3/3 [==============================] - 1s 370ms/step - loss: 0.6590 - binary_accuracy: 0.3333
+        
+        
+        
+        
+        
+        [0.6589697599411011, 0.3333333432674408]
+        </code></pre></div></div>
+        
+        <p>while we have a 70% train accuracy, we ended up getting a mere 33% accuracy on our test dataset. This is a clear sign of over-fitting</p>
+        
+        <p>That’s it …</p>
+        
+        <p>easy, right?</p>
+        
+        
+                
+              </section>
+
+              <div class="entry-footer">
+                <i class="bi bi-folder"></i>
+                <ul class="cats">
+                  <li><a href="#">Training</a></li>
+                </ul>
+
+                <i class="bi bi-tags"></i>
+                <ul class="tags">
+                  <li><a href="#">Deep Learning</a></li>
+                  <li><a href="#">ImageDataGenerator</a></li>
+                  <li><a href="#">TensorFlow</a></li>
+                  <li><a href="#">Training</a></li>
+                </ul>
+              </div>
+
+            </article><!-- End blog entry -->
+
+            <div class="blog-author d-flex align-items-center">
+              <img src="assets/img/team/team-3.jpg" class="rounded-circle float-left" alt="">
+              <div>
+                <h4>Snawar Hussain</h4>
+                <div class="social-links">
+                  <a href="https://twitter.com/SnawarHussain"><i class="bi bi-twitter"></i></a>
+                  <a href="https://github.com/snawarhussain"><i class="bi bi-github"></i></a>
+                  <a href="https://instagram.com/snawar_hussain"><i class="biu bi-instagram"></i></a>
+                </div>
+                <p>
+                  PhD fellow at Zhejiang University
+                  majoring in Computer Science
+                  Research Areas: Machine Vision, Computation Ethology, BCI
+                </p>
+              </div>
+            </div><!-- End blog author bio -->
+
+            <div class="blog-comments">
+
+              <h4 class="comments-count">8 Comments</h4>
+
+              <div id="comment-1" class="comment">
+                <div class="d-flex">
+                  <div class="comment-img"><img src="assets/img/blog/comments-1.jpg" alt=""></div>
+                  <div>
+                    <h5><a href="">Georgia Reader</a> <a href="#" class="reply"><i class="bi bi-reply-fill"></i> Reply</a></h5>
+                    <time datetime="2020-01-01">01 Jan, 2020</time>
+                    <p>
+                      Et rerum totam nisi. Molestiae vel quam dolorum vel voluptatem et et. Est ad aut sapiente quis molestiae est qui cum soluta.
+                      Vero aut rerum vel. Rerum quos laboriosam placeat ex qui. Sint qui facilis et.
+                    </p>
+                  </div>
+                </div>
+              </div><!-- End comment #1 -->
+
+              <div id="comment-2" class="comment">
+                <div class="d-flex">
+                  <div class="comment-img"><img src="assets/img/blog/comments-2.jpg" alt=""></div>
+                  <div>
+                    <h5><a href="">Aron Alvarado</a> <a href="#" class="reply"><i class="bi bi-reply-fill"></i> Reply</a></h5>
+                    <time datetime="2020-01-01">01 Jan, 2020</time>
+                    <p>
+                      Ipsam tempora sequi voluptatem quis sapiente non. Autem itaque eveniet saepe. Officiis illo ut beatae.
+                    </p>
+                  </div>
+                </div>
+
+                <div id="comment-reply-1" class="comment comment-reply">
+                  <div class="d-flex">
+                    <div class="comment-img"><img src="assets/img/blog/comments-3.jpg" alt=""></div>
+                    <div>
+                      <h5><a href="">Lynda Small</a> <a href="#" class="reply"><i class="bi bi-reply-fill"></i> Reply</a></h5>
+                      <time datetime="2020-01-01">01 Jan, 2020</time>
+                      <p>
+                        Enim ipsa eum fugiat fuga repellat. Commodi quo quo dicta. Est ullam aspernatur ut vitae quia mollitia id non. Qui ad quas nostrum rerum sed necessitatibus aut est. Eum officiis sed repellat maxime vero nisi natus. Amet nesciunt nesciunt qui illum omnis est et dolor recusandae.
+
+                        Recusandae sit ad aut impedit et. Ipsa labore dolor impedit et natus in porro aut. Magnam qui cum. Illo similique occaecati nihil modi eligendi. Pariatur distinctio labore omnis incidunt et illum. Expedita et dignissimos distinctio laborum minima fugiat.
+
+                        Libero corporis qui. Nam illo odio beatae enim ducimus. Harum reiciendis error dolorum non autem quisquam vero rerum neque.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div id="comment-reply-2" class="comment comment-reply">
+                    <div class="d-flex">
+                      <div class="comment-img"><img src="assets/img/blog/comments-4.jpg" alt=""></div>
+                      <div>
+                        <h5><a href="">Sianna Ramsay</a> <a href="#" class="reply"><i class="bi bi-reply-fill"></i> Reply</a></h5>
+                        <time datetime="2020-01-01">01 Jan, 2020</time>
+                        <p>
+                          Et dignissimos impedit nulla et quo distinctio ex nemo. Omnis quia dolores cupiditate et. Ut unde qui eligendi sapiente omnis ullam. Placeat porro est commodi est officiis voluptas repellat quisquam possimus. Perferendis id consectetur necessitatibus.
+                        </p>
+                      </div>
+                    </div>
+
+                  </div><!-- End comment reply #2-->
+
+                </div><!-- End comment reply #1-->
+
+              </div><!-- End comment #2-->
+
+              <div id="comment-3" class="comment">
+                <div class="d-flex">
+                  <div class="comment-img"><img src="assets/img/blog/comments-5.jpg" alt=""></div>
+                  <div>
+                    <h5><a href="">Nolan Davidson</a> <a href="#" class="reply"><i class="bi bi-reply-fill"></i> Reply</a></h5>
+                    <time datetime="2020-01-01">01 Jan, 2020</time>
+                    <p>
+                      Distinctio nesciunt rerum reprehenderit sed. Iste omnis eius repellendus quia nihil ut accusantium tempore. Nesciunt expedita id dolor exercitationem aspernatur aut quam ut. Voluptatem est accusamus iste at.
+                      Non aut et et esse qui sit modi neque. Exercitationem et eos aspernatur. Ea est consequuntur officia beatae ea aut eos soluta. Non qui dolorum voluptatibus et optio veniam. Quam officia sit nostrum dolorem.
+                    </p>
+                  </div>
+                </div>
+
+              </div><!-- End comment #3 -->
+
+              <div id="comment-4" class="comment">
+                <div class="d-flex">
+                  <div class="comment-img"><img src="assets/img/blog/comments-6.jpg" alt=""></div>
+                  <div>
+                    <h5><a href="">Kay Duggan</a> <a href="#" class="reply"><i class="bi bi-reply-fill"></i> Reply</a></h5>
+                    <time datetime="2020-01-01">01 Jan, 2020</time>
+                    <p>
+                      Dolorem atque aut. Omnis doloremque blanditiis quia eum porro quis ut velit tempore. Cumque sed quia ut maxime. Est ad aut cum. Ut exercitationem non in fugiat.
+                    </p>
+                  </div>
+                </div>
+
+              </div><!-- End comment #4 -->
+
+              <!-- <div class="reply-form">
+                <h4>Leave a Reply</h4>
+                <p>Your email address will not be published. Required fields are marked * </p>
+                <form action="">
+                  <div class="row">
+                    <div class="col-md-6 form-group">
+                      <input name="name" type="text" class="form-control" placeholder="Your Name*">
+                    </div>
+                    <div class="col-md-6 form-group">
+                      <input name="email" type="text" class="form-control" placeholder="Your Email*">
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col form-group">
+                      <input name="website" type="text" class="form-control" placeholder="Your Website">
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col form-group">
+                      <textarea name="comment" class="form-control" placeholder="Your Comment*"></textarea>
+                    </div>
+                  </div>
+                  <button type="submit" class="btn btn-primary">Post Comment</button>
+
+                </form>
+
+              </div> -->
+
+            </div><!-- End blog comments -->
+
+          </div><!-- End blog entries list -->
+
+          <div class="col-lg-4">
+
+            <div class="sidebar">
+
+              <h3 class="sidebar-title">Search</h3>
+              <div class="sidebar-item search-form">
+                <form action="">
+                  <input type="text">
+                  <button type="submit"><i class="bi bi-search"></i></button>
+                </form>
+              </div><!-- End sidebar search formn-->
+
+              <h3 class="sidebar-title">Categories</h3>
+              <div class="sidebar-item categories">
+                <ul>
+                  <li><a href="#">Blog <span>(25)</span></a></li>
+                  <li><a href="#">Deep Learning <span>(12)</span></a></li>
+                  <li><a href="#">Python <span>(5)</span></a></li>
+                  <li><a href="#">Pytorch <span>(22)</span></a></li>
+                  <li><a href="#">Training <span>(8)</span></a></li>
+                  <!-- <li><a href="#">Educaion <span>(14)</span></a></li> -->
+                </ul>
+              </div><!-- End sidebar categories-->
+
+              <h3 class="sidebar-title">Recent Posts</h3>
+              <div class="sidebar-item recent-posts">
+                <div class="post-item clearfix">
+                  <img src="assets/img/blog/blog-recent-1.jpg" alt="">
+                  <h4><a href="blog-single.html">Different ways to load custom dataset in TensorFlow 2 for classification</a></h4>
+                  <time datetime="2021-08-10">August 10, 2021</time>
+                </div>
+
+                <div class="post-item clearfix">
+                  <img src="assets/img/blog/blog-recent-2.jpg" alt="">
+                  <h4><a href="blog-single.html">Working with custom datasets in PyTorch
+                  </a></h4>
+                  <time datetime="2021-07-12">July 12, 2021</time>
+                </div>
+
+                <div class="post-item clearfix">
+                  <img src="assets/img/blog/blog-recent-3.jpg" alt="">
+                  <h4><a href="blog-single.html">Ubuntu 20.04 resolution stuck at 1280x720, permanent fix
+                  </a></h4>
+                  <time datetime="2021-07-02">July 2, 2021</time>
+                </div>
+
+                <div class="post-item clearfix">
+                  <img src="assets/img/blog/blog-recent-4.jpg" alt="">
+                  <h4><a href="blog-single.html">Django3.2.5 with Apache2 and mod_wsgi
+                  </a></h4>
+                  <time datetime="2021-07-02">July 2, 2021</time>
+                </div>
+
+                <div class="post-item clearfix">
+                  <img src="assets/img/blog/blog-recent-5.jpg" alt="">
+                  <h4><a href="blog-single.html">Code editors and IDEs for Python
+                  </a></h4>
+                  <time datetime="2021-07-01">July 1, 2021</time>
+                </div>
+
+              </div><!-- End sidebar recent posts-->
+
+              <h3 class="sidebar-title">Tags</h3>
+              <div class="sidebar-item tags">
+                <ul>
+                  <li><a href="#">Dataloader</a></li>
+                  <li><a href="#">IT</a></li>
+                  <li><a href="#">Business</a></li>
+                  <li><a href="#">PyTorch</a></li>
+                  <li><a href="#">Design</a></li>
+                  <li><a href="#">IDE</a></li>
+                  <li><a href="#">Dataset</a></li>
+                  <li><a href="#">Deep Learning</a></li>
+                  <li><a href="#">Labeling</a></li>
+                  <li><a href="#">Tips</a></li>
+                  <li><a href="#">Django</a></li>
+                </ul>
+              </div><!-- End sidebar tags-->
+
+            </div><!-- End sidebar -->
+
+          </div><!-- End blog sidebar -->
+
+        </div>
+
+      </div>
+    </section><!-- End Blog Single Section -->
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer" class="footer">
+
+    <!-- <div class="footer-newsletter">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-12 text-center">
+            <h4>Our Newsletter</h4>
+            <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna</p>
+          </div>
+          <div class="col-lg-6">
+            <form action="" method="post">
+              <input type="email" name="email"><input type="submit" value="Subscribe">
+            </form>
+          </div>
+        </div>
+      </div>
+    </div> -->
+
+    <div class="footer-top">
+      <div class="container">
+        <div class="row gy-4">
+          <div class="col-lg-5 col-md-12 footer-info">
+            <a href="index.html" class="logo d-flex align-items-center">
+              <img src="assets/img/logo.png" alt="" text="en">
+              <img src="assets/img/logo1-3.jpg.png" alt="" text="cn">
+              <span></span>
+            </a>
+            <p text="en">Hangzhou Hyperchip Software Technology Co., Ltd. was founded in 2022 and headquartered in Hangzhou, commenced operations as a software company, focusing on research and development of AI</p>
+            <p text="cn">Hyperchip Technology 杭州海启软件科技有限公司成立于2022年，总部位于杭州。起源是主营软件服务业务。核心战略是成为一家国际人工智能的研发和咨询公司</p>
+            <div class="social-links mt-3">
+              <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
+              <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
+              <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
+              <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
+            </div>
+          </div>
+
+          <div class="col-lg-2 col-6 footer-links">
+            <h4 text="en">Follow Us on Wechat</h4>
+            <h4 text="cn">关注我们公众号</h4>
+            <img class="" id="" src="assets\img\amir-wechat.jpg" style="width:130px">
+            <!-- 
+            <ul>
+
+              <li><i class="bi bi-chevron-right"></i> <a href="#">Home</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a href="#">About us</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a href="#">Services</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a href="#">Terms of service</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a href="#">Privacy policy</a></li>
+            </ul> -->
+          </div>
+
+          <div class="col-lg-2 col-6 footer-links">
+            <h4 text="en">Our Services</h4>
+            <h4 text="cn">我们提供的服务</h4>
+            <ul text="en">
+              <li><i class="bi bi-chevron-right"></i> <a >Algorithm Research</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a >Pose Estimation</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a >Image Processing</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a >Website Design</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a >Service Application</a></li>
+            </ul>
+            <ul text="cn">
+              <li><i class="bi bi-chevron-right"></i> <a >算法研究</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a >姿势估计</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a >图像处理</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a >网站设计</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a >服务应用程序</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-3 col-md-12 footer-contact text-center text-md-start">
+            <h4 text="en">Contact Us</h4>
+            <h4 text="cn">联系我们</h4>
+            <p text="cn">
+              杭州国际人才创业创新园祥园路171号1幢10楼1012室<br><br>
+              <strong>电话:</strong> +86 158 6842 0294<br>
+              <strong>邮件:</strong> amir_sh@outlook.my<br>
+
+            </p>
+            <p text="en">
+              Hangzhou International Talents Entrepreneurship & Innovation Park, <br>
+              Room 1012, 10th Floor, Building 1, No. 171, Xiangyuan Road<br>
+              Hangzhou, China <br><br>
+              <strong>Phone:</strong> +86 158 6842 0294<br>
+              <strong>Email:</strong> amir_sh@outlook.my<br>
+
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="copyright" text="en">
+        &copy; Copyright <strong><span >Hyperchip Technology</span></strong>. All Rights Reserved
+      </div>
+      <div class="copyright" text="cn">
+        ©版权所有 <strong><span text="cn">Hyperchip Technology</span></strong> 保留所有权利
+      </div>
+
+      <div class="credits">
+        <!-- All the links in the footer should remain intact. -->
+        <!-- You can delete the links only if you purchased the pro version. -->
+        <!-- Licensing information: https://bootstrapmade.com/license/ -->
+        <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/Hyperchip Technology-bootstrap-startup-template/ -->
+        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+      </div>
+    </div>
+  </footer><!-- End Footer -->
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="assets/js/main.js"></script>
+  <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+  <script>function toggleLanguage(language) {
+    $('[text="cn"]').hide(); // hide all lang attributes on start.
+    $('[text="en"]').show(); // show just Korean text (you can change it)
+    $('#text-switch').change(function () { // put onchange event when user select option from select
+        var text = $(this).val(); // decide which language to display using switch case. The rest is obvious (i think)
+        
+        switch (text) {
+            case 'en':
+                $('[text]').hide();
+                $('[text="en"]').show();
+            break;
+            case 'cn':
+                $('[text]').hide();
+                $('[text="cn"]').show();
+            break;
+            default:
+                $('[text]').hide();
+                $('[text="cn"]').show();
+            }
+         
+    });
+  }
+    </script>
+    <script>
+      function toggleExtra(language){ //This function is for the "Read More" button, it toggles more text on the page. If the function carries "en" it means English, if it passes "cn" it means Chinese
+      var text = language;
+      // window.alert(language);
+
+       // decide which language to display using switch case. The rest is obvious (i think)
+        
+        switch (text) {
+            case 'English':
+                var x = document.getElementById("extra_en"); 
+                if (x.style.display === "none") {
+                    x.style.display = "block";
+                } else {
+                 x.style.display = "none";
+               }
+            break;
+            case 'Chinese':
+                var x = document.getElementById("extra_cn"); 
+                if (x.style.display === "none") {
+                    x.style.display = "block";
+                } else {
+                x.style.display = "none";
+                }
+            break;
+            default:     
+            }
+      }
+    </script>
+    <script>
+
+      var usrlang = navigator.language 
+      //Check to see what the preferred language of the browser is, then set accordingly 
+      if (usrlang === "zh" || usrlang === "zh-Hans"|| usrlang === "zh-CN") {
+          $('[text]').hide(); //init in chinese
+          $('[text="cn"]').show();
+      }else{
+          $('[text]').hide();
+          $('[text="en"]').show();
+      }
+
+      function toggleLanguage(language) {
+        let description = document.getElementById("description");
+        if (language === "Chinese") {
+             $('[text]').hide();
+             $('[text="cn"]').show();
+        }
+        else {
+             $('[text]').hide();
+             $('[text="en"]').show();
+        }
+      }
+    </script>
+
+</body>
+
+</html>
